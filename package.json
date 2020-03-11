@@ -1,0 +1,57 @@
+{
+    "name": "nutter-ui",
+    "description": "nutter's element ui",
+    "authors": "nutter",
+    "version": "1.0.0",
+    "main": "dist/main.umd.js",
+    "module": "dist/main.esm.js",
+    "unpkg": "dist/main.min.js",
+    "keywords": [
+        "tools",
+        "javascript",
+        "library"
+    ],
+    "dependencies": {
+        "vue": "^2.6.11"
+    },
+    "scripts": {
+        "dev": "rollup -c -w",
+        "build": "cross-env NODE_ENV=production rollup -c",
+        "docz:dev": "docz dev",
+        "docz:build": "docz build",
+        "docz:serve": "docz build && docz serve"
+    },
+    "files": [
+        "dist",
+        "examples",
+        "packages",
+        "public"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nutter123/nutter-ui"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.8.4",
+        "@babel/core": "^7.8.7",
+        "@babel/node": "^7.8.7",
+        "@babel/plugin-transform-runtime": "^7.8.3",
+        "@babel/preset-env": "^7.8.7",
+        "babel-plugin-module-resolver": "^4.0.0",
+        "@babel/polyfill": "^7.8.7",
+        "clean-css": "^4.2.3",
+        "core-js": "^3.6.4",
+        "docz": "^2.2.0",
+        "fs": "0.0.1-security",
+        "rollup-plugin-babel": "^4.4.0",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-css-only": "^2.0.0",
+        "rollup-plugin-eslint": "^7.0.0",
+        "rollup-plugin-json": "^4.0.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-sass": "^1.2.2",
+        "rollup-plugin-terser": "^5.3.0",
+        "rollup-plugin-vue": "^5.1.6",
+        "vue-template-compiler": "^2.6.11"
+    }
+}
