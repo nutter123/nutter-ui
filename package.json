@@ -16,7 +16,10 @@
     },
     "scripts": {
         "dev": "rollup -c -w",
-        "build": "cross-env NODE_ENV=production rollup -c",
+        "build": "npm run build:browser && npm run build:es && npm run build:umd",
+        "build:browser": "cross-env NODE_ENV=production rollup --config build/rollup.config.browser.js",
+        "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.es.js",
+        "build:umd": "cross-env NODE_ENV=production rollup --config build/rollup.config.umd.js",
         "docz:dev": "docz dev",
         "docz:build": "docz build",
         "docz:serve": "docz build && docz serve"
@@ -36,11 +39,15 @@
         "@babel/core": "^7.8.7",
         "@babel/node": "^7.8.7",
         "@babel/plugin-transform-runtime": "^7.8.3",
-        "@babel/preset-env": "^7.8.7",
-        "babel-plugin-module-resolver": "^4.0.0",
         "@babel/polyfill": "^7.8.7",
+        "@babel/preset-env": "^7.8.7",
+        "babel-plugin-import": "^1.13.0",
+        "babel-plugin-module-resolver": "^4.0.0",
         "clean-css": "^4.2.3",
+        "commitizen": "^4.0.3",
+        "conventional-changelog": "^3.1.18",
         "core-js": "^3.6.4",
+        "cz-conventional-changelog": "^3.1.0",
         "docz": "^2.2.0",
         "fs": "0.0.1-security",
         "rollup-plugin-babel": "^4.4.0",
@@ -51,6 +58,7 @@
         "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-sass": "^1.2.2",
         "rollup-plugin-terser": "^5.3.0",
+        "rollup-plugin-uglify-es": "0.0.1",
         "rollup-plugin-vue": "^5.1.6",
         "vue-template-compiler": "^2.6.11"
     }
