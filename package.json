@@ -22,7 +22,8 @@
         "build:umd": "cross-env NODE_ENV=production rollup --config build/rollup.config.umd.js",
         "docz:dev": "docz dev",
         "docz:build": "docz build",
-        "docz:serve": "docz build && docz serve"
+        "docz:serve": "docz build && docz serve",
+        "genlog": "conventional-changelog -p angular -i .github/CHANGELOG.md -s"
     },
     "files": [
         "dist",
