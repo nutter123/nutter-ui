@@ -12,6 +12,8 @@
         "library"
     ],
     "dependencies": {
+        "rollup-plugin-alias": "^2.2.0",
+        "rollup-plugin-require-context": "^1.0.0",
         "vue": "^2.6.11"
     },
     "scripts": {

@@ -1,11 +1,11 @@
 .button-1:active::after {
     //css埋点
-    content: url('./pixel.gif?action=click&id=button1');
+    content: '1';
     display: none;
 }
 
 .button-2:active::after {
-    content: url('./pixel.gif?action=click&id=button2');
+    content: "url('./pixel.gif?action=click&id=button2')";
     display: none;
 }
 
