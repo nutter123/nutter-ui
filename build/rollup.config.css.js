@@ -8,29 +8,23 @@ import {
 import {
     eslint
 } from 'rollup-plugin-eslint'; //js代码检测
-import vue from 'rollup-plugin-vue' //类vue-loader作用
 import json from 'rollup-plugin-json';
-import css from 'rollup-plugin-css-only' // 提取css，压缩能力不行
 import CleanCSS from 'clean-css' // 压缩css
 import {
     writeFileSync
 } from 'fs' // 写文件
 
-const inputList = require('../packages/lib-list')
 const isDev = process.env.NODE_ENV !== 'production';
 
 export default {
-    input: ['packages/components/index'],
+    input: ['packages/assets/index'],
     external: ['lodash', 'ms', 'vue'],
     output: [
-        // {
-        //   name: 'cjs',
-        //   file: "dist/main.js",
-        //   format: 'cjs',
-        //   globals: {
-        //     vue: 'Vue'
-        //   },
-        // },
+        {
+            name: 'cjs',
+            file: "dist/nutterStyle.js",
+            format: 'cjs'
+        },
         // {
         //   name: 'es',
         //   file: "dist/main.esm.js",
@@ -49,21 +43,26 @@ export default {
         resolve({
             extensions: ['.js', '.vue', '.json', 'css', 'scss']
         }),
-        commonjs(),
-        vue({
-            css: false
+        sass({
+            output(style) {
+                // 压缩 css 写入 dist/nutterUi.css
+                writeFileSync('dist/nutterStyle.css', new CleanCSS().minify(style).styles)
+            }
         }),
+        commonjs(),
+        // vue({
+        //     css: false
+        // }),
         babel({
             exclude: 'node_modules/**', // 防止打包node_modules下的文件
             runtimeHelpers: true, // 使plugin-transform-runtime生效
         }),
-        sass(),
-        css({
-            output(style) {
-                // 压缩 css 写入 dist/nutterUi.css
-                writeFileSync('dist/nutterUi.css', new CleanCSS().minify(style).styles)
-            }
-        }),
+        // css({
+        //     output(style) {
+        //         // 压缩 css 写入 dist/nutterUi.css
+        //         writeFileSync('dist/nutterUi.css', new CleanCSS().minify(style).styles)
+        //     }
+        // }),
         eslint({
             throwOnError: true,
             throwOnWarning: false,
