@@ -20,7 +20,7 @@ const inputList = require('../packages/lib-list')
 const isDev = process.env.NODE_ENV !== 'production';
 
 export default {
-    input: ['packages/index', 'packages/Css/util'],
+    input: ['packages/utils/index'],
     external: ['lodash', 'ms', 'vue'],
     output: [
         // {
@@ -49,12 +49,12 @@ export default {
         resolve({
             extensions: ['.js', '.vue', '.json', 'css', 'scss']
         }),
-        sass({
-            output(style) {
-                // 压缩 css 写入 dist/nutterUi.css
-                writeFileSync('dist/nutterUi.css', new CleanCSS().minify(style).styles)
-            }
-        }),
+        // sass({
+        //     output(style) {
+        //         // 压缩 css 写入 dist/nutterUi.css
+        //         writeFileSync('dist/nutterUi.css', new CleanCSS().minify(style).styles)
+        //     }
+        // }),
         commonjs(),
         vue({
             css: false
@@ -63,16 +63,16 @@ export default {
             exclude: 'node_modules/**', // 防止打包node_modules下的文件
             runtimeHelpers: true, // 使plugin-transform-runtime生效
         }),
-        // css({
-        //     output(style) {
-        //         // 压缩 css 写入 dist/nutterUi.css
-        //         writeFileSync('dist/nutterUi.css', new CleanCSS().minify(style).styles)
-        //     }
-        // }),
+        css({
+            output(style) {
+                // 压缩 css 写入 dist/nutterUi.css
+                writeFileSync('dist/nutterUi.css', new CleanCSS().minify(style).styles)
+            }
+        }),
         eslint({
             throwOnError: true,
             throwOnWarning: false,
-            include: ['packages/**'],
+            include: ['packages/utils/**'],
             exclude: ['node_modules/**']
         }),
         json(),
