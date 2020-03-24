@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <icon name="iconicon-test1"></icon>
+    <nt-button>{{msg}}</nt-button>
+    <nt-icon name="arrow_right"></nt-icon>
   </div>
 </template>
 

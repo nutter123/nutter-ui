@@ -1,21 +1,31 @@
-// import XButton from './components/Button/index'
-// import './assets/iconfonts/iconfont.css'
-let components = []
+// import options from './options'
+import Components from './components'
+// import Plugins from './plugins'
+// import Filters from './filters'
+// import Third from './third'
+import * as utils from './utils'
 
-const requireComponent = require.context('./components', // 是否查询其子目录 
-    true,
-    /index.js$/);
+export * from './components'
 
-requireComponent.keys().forEach(fileName => { // 获取组件配置  
-    const componentConfig = requireComponent(fileName)
-    // const componentName = upperFirst(camelCase( // 获取和目录深度无关的文件名 
-    //     fileName.split('/').pop().replace(/\.\w+$/, ''))) // 全局注册组件 
-    components.push(componentConfig.default || componentConfig)
-    // Vue.component(componentName, componentConfig.default || componentConfig)
-})
-const install = function (Vue) {
+const install = function (Vue, opts = {}) {
     if (install.installed) return;
-    components.map(component => Vue.component(component.name, component))
+    Vue.use(Components, opts.components)
+    // opts = Object.assign(options, opts)
+    // if (opts.components !== false) {
+    //     Vue.use(Components, opts.components)
+    // }
+
+    // if (opts.plugins !== false) {
+    //     Vue.use(Plugins, opts.plugins)
+    // }
+
+    // if (opts.filters !== false) {
+    //     Vue.use(Filters, opts.filters)
+    // }
+
+    // if (opts.third !== false) {
+    //     Vue.use(Third, opts.third)
+    // }
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -24,5 +34,5 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
     install,
-    ...components
+    utils
 }

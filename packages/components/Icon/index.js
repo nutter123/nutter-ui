@@ -1,6 +1,6 @@
-import Icon from './src/index.vue'
+import NtIcon from './src/index.vue'
 
-Icon.install = function (Vue) {
-    Vue.component(Icon.name, Icon)
+NtIcon.install = function (Vue) {
+    Vue.component(NtIcon.name, NtIcon)
 }
-export default Icon;
+export default NtIcon;

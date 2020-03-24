@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-  name: "icon",
+  name: "nt-icon",
   props: { name: String }
 };
 </script>

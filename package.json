@@ -12,9 +12,17 @@
         "library"
     ],
     "dependencies": {
+        "extend": "^3.0.2",
         "rollup-plugin-alias": "^2.2.0",
+        "rollup-plugin-node-builtins": "^2.1.2",
         "rollup-plugin-require-context": "^1.0.0",
-        "vue": "^2.6.11"
+        "vue": "^2.6.11",
+        "vue-cookie": "^1.1.4"
+    },
+    "peerDependencies": {
+        "vue": "^2.4.4",
+        "axios": "^0.17.1",
+        "element-ui": "^2.0.8"
     },
     "scripts": {
         "dev": "rollup -c -w",

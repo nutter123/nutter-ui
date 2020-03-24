@@ -1,6 +1,6 @@
-import XButton from './src/index.vue'
+import NtButton from './src/index.vue'
 
-XButton.install = function (Vue) {
-    Vue.component(XButton.name, XButton)
+NtButton.install = function (Vue) {
+    Vue.component(NtButton.name, NtButton)
 }
-export default XButton;
+export default NtButton;

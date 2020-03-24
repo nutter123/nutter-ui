@@ -1,6 +1,7 @@
 import resolve from 'rollup-plugin-node-resolve'; //帮助 Rollup 查找外部模块，然后导入
 import commonjs from 'rollup-plugin-commonjs'; //将CommonJS模块转换为 ES2015 供 Rollup 处理
 import babel from "rollup-plugin-babel"; //让我们可以使用es6新特性来编写代码
+// import builtins from 'rollup-plugin-node-builtins'; //插件内置
 import {
     terser
 } from 'rollup-plugin-terser'; //压缩js代码，包括es6代码压缩
@@ -26,7 +27,6 @@ const isDev = process.env.NODE_ENV !== 'production';
 function resolvePath(dir) {
     return path.join(__dirname, '..', dir)
 }
-
 const processSass = function (context, payload) {
     return new Promise((resolve, reject) => {
         sass.render({
@@ -45,7 +45,7 @@ const processSass = function (context, payload) {
 
 export default {
     input: ['packages/index'],
-    external: ['lodash', 'ms', 'vue'],
+    external: ['lodash', 'vue'],
     output: [
         // {
         //   name: 'cjs',
@@ -70,18 +70,25 @@ export default {
         // }
     ],
     plugins: [
+        // builtins(),
         requireContext(), //遍历文件
-        resolve({
-            extensions: ['.js', '.vue', '.json', 'css', 'scss']
+        eslint({
+            throwOnError: true,
+            throwOnWarning: false,
+            include: ['packages/utils/**'],
+            exclude: ['node_modules/**']
         }),
-        commonjs(),
         alias({
             resolve: ['.js', '.vue', '.json', 'scss', 'css', 'sass'],
             entries: {
                 '@': resolvePath('packages'),
-                '@@': resolvePath('node_modules')
+                '@components': resolvePath('packages/components')
             }
         }),
+        resolve({
+            extensions: ['.js', '.vue', '.json', 'css', 'scss']
+        }),
+        commonjs(),
         css({
             output(style) {
                 // 压缩 css 写入 dist/nutterUi.css
@@ -94,13 +101,6 @@ export default {
         babel({
             exclude: 'node_modules/**', // 防止打包node_modules下的文件
             runtimeHelpers: true, // 使plugin-transform-runtime生效
-        }),
-
-        eslint({
-            throwOnError: true,
-            throwOnWarning: false,
-            include: ['packages/utils/**'],
-            exclude: ['node_modules/**']
         }),
         json(),
         !isDev && terser()
