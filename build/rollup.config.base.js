@@ -5,7 +5,7 @@ import babel from "rollup-plugin-babel"; //让我们可以使用es6新特性来�
 import {
     terser
 } from 'rollup-plugin-terser'; //压缩js代码，包括es6代码压缩
-import alias from 'rollup-plugin-alias'; //别名
+import alias from '@rollup/plugin-alias'; //别名
 import {
     eslint
 } from 'rollup-plugin-eslint'; //js代码检测
