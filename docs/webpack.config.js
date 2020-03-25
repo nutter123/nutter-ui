@@ -12,8 +12,15 @@ module.exports = {
     rules: [{
         test: /\.css$/,
         use: [
-          'vue-style-loader',
+          'style-loader',
           'css-loader'
+        ],
+      }, {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
         ],
       }, {
         test: /\.vue$/,
@@ -46,7 +53,10 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': path.resolve('./src'),
+      '@@': path.resolve('./node_modules'),
+      '@nut': 'nutter-ui'
     },
     extensions: ['*', '.js', '.vue', '.json']
   },

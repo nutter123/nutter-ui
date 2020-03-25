@@ -1,13 +1,16 @@
 import Button from './Button'
 import Icon from './Icon'
+import Title from './Title'
 
 export * from './Button'
 export * from './Icon'
+export * from './Title'
 
 export default {
     install(Vue, opts = {}) {
         Vue.use(Button, opts.button);
         Vue.use(Icon, opts.icon);
+        Vue.use(Title, opts.title);
     }
 }
 // let components = []

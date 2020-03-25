@@ -1,3 +1,5 @@
+import './assets'
+
 // import options from './options'
 import Components from './components'
 // import Plugins from './plugins'

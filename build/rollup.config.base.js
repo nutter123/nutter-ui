@@ -11,10 +11,7 @@ import {
 } from 'rollup-plugin-eslint'; //js代码检测
 import vue from 'rollup-plugin-vue' //类vue-loader作用
 import json from 'rollup-plugin-json';
-import css from 'rollup-plugin-css-only' // 提取css，压缩能力不行
-// const postcss = require('rollup-plugin-postcss');
-// import sass from 'rollup-plugin-sass';
-// const sass = require('node-sass');
+import sass from 'rollup-plugin-sass';
 import CleanCSS from 'clean-css' // 压缩css
 import requireContext from 'rollup-plugin-require-context';
 import {
@@ -46,29 +43,7 @@ const processSass = function (context, payload) {
 export default {
     input: ['packages/index'],
     external: ['lodash', 'vue'],
-    output: [
-        // {
-        //   name: 'cjs',
-        //   file: "dist/main.js",
-        //   format: 'cjs',
-        //   globals: {
-        //     vue: 'Vue'
-        //   },
-        // },
-        // {
-        //   name: 'es',
-        //   file: "dist/main.esm.js",
-        //   format: 'es',
-        // },
-        // {
-        //     name: 'nutterUi',
-        //     file: "dist/main.umd.js",
-        //     format: 'umd',
-        //     globals: {
-        //         vue: 'Vue'
-        //     },
-        // }
-    ],
+    output: [],
     plugins: [
         // builtins(),
         requireContext(), //遍历文件
@@ -79,25 +54,25 @@ export default {
             exclude: ['node_modules/**']
         }),
         alias({
-            resolve: ['.js', '.vue', '.json', 'scss', 'css', 'sass'],
+            resolve: ['.js', '.vue', '.json'],
             entries: {
                 '@': resolvePath('packages'),
                 '@components': resolvePath('packages/components')
             }
         }),
         resolve({
-            extensions: ['.js', '.vue', '.json', 'css', 'scss']
-        }),
-        commonjs(),
-        css({
-            output(style) {
-                // 压缩 css 写入 dist/nutterUi.css
-                writeFileSync('dist/nutterUi.css', new CleanCSS().minify(style).styles)
-            }
+            extensions: ['.js', '.vue', '.json']
         }),
         vue({
             css: false
         }),
+        sass({
+            output(style) {
+                // 压缩 css 写入 dist/nutterUi.css
+                writeFileSync('dist/style.css', new CleanCSS().minify(style).styles)
+            }
+        }),
+        commonjs(),
         babel({
             exclude: 'node_modules/**', // 防止打包node_modules下的文件
             runtimeHelpers: true, // 使plugin-transform-runtime生效

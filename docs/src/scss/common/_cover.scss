@@ -1,0 +1,48 @@
+// 覆盖 vue asset 样式
+.el-date-table td.current:not(.disabled) span {
+    background: $primary-color
+}
+
+.el-date-table td.available:hover,
+.el-date-table td.today span {
+    color: $primary-color
+}
+
+.el-date-table td.end-date span,
+.el-date-table td.start-date span {
+    background: $primary-color
+}
+
+.el-message-box .el-message-box__btns{
+    button.el-button--default {
+        float: right;
+        margin-left: 10px;
+    }
+}
+
+button.el-button--default.el-button--primary,
+button.el-button--primary {
+    background: $primary-color;
+    border-color: darken($primary-color, 5%);
+    &:active,
+    &:focus,
+    &:hover {
+        color: #fff;
+        background: lighten($primary-color, 5%);
+        border-color: darken(lighten($primary-color, 5%), 5%);
+    }
+}
+
+.timi_old_layout_update,
+.flex1>div.timi_old_layout_update {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    &>.breadcrumb {
+        flex: 0
+    }
+    &>.contain {
+        overflow: auto;
+        flex: 1
+    }
+}
