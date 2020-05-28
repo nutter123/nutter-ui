@@ -267,7 +267,6 @@
             <p class="w160 vm">寄件设置</p>
           </header>
           <div class="info-content">
-            <send-setting v-if="detailData.id" :cab-id="detailData.id" :cab-info="infoForm"></send-setting>
           </div>
           <header>
             <p class="w160 vm">网点现场照片</p>
@@ -591,7 +590,6 @@ import CabInfoTable from "./CabInfoTable";
 import RecordLogs from "./RecordLogs";
 import BoxMac from "./BoxMac";
 import CabInfo from "./CabInfo";
-import SendSetting from "./SendSetting";
 import SitePic from "./SitePic";
 import AdminSet from "./AdminSet";
 import PriceSet from "./PriceSet";
@@ -779,7 +777,6 @@ export default {
     RecordLogs, // 格口记录
     BoxMac, //格口门码
     CabInfo, // 柜机硬件信息
-    SendSetting, // 寄件设置
     SitePic, // 网点照片
     AdminSet, // 管理员设置
     PriceSet, // 价格设置
