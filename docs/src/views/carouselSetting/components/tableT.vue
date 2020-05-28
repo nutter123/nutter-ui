@@ -100,7 +100,7 @@
         </div>
       </div>
     </div>
-    <at-panel v-model="dialogShow" :title="dialogType==1?'新增轮播图':'修改轮播图'" class="panel-zindex">
+    <n-dialog v-model="dialogShow" :title="dialogType==1?'新增轮播图':'修改轮播图'" class="panel-zindex">
       <new-website
         ref="newWebsite"
         :type="dialogType"
@@ -109,7 +109,7 @@
         :startType="1"
         @after-save="afterSave"
       ></new-website>
-    </at-panel>
+    </n-dialog>
     <detail-dialog
       :dialogVisible="detailShow"
       :modelInfo="detailModel"

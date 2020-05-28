@@ -14,3 +14,18 @@ $color-white: #fff; // 背景色
 $bg-bar: #F9F9F9;
 $bg-page: #F3F3F3;
 $bg-page-light: #F9F9F9;
+
+$font-color :#333;
+
+$primary-color : #ffa400; 
+$info-color : linear-gradient(#ffd100, #ffa400);
+$success-color : #67c23a; 
+$warning-color : #FEBF06; 
+$error-color : #FF6c6c; 
+$link-color : #2D8cF0;
+$link-hover-color : lighten($link-color, 20%);
+$link-active-color : darken($link-color, 5%);
+$selected-color : shade($primary-color, 90%);
+$tooltip-color : #fff;
+$subsidiary-color : #80848f;
+$rate-star-color : #f5a623;

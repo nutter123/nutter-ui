@@ -1,0 +1,122 @@
+.data-bi {
+    $item-height: 350px;
+    $small-item-height: 280px;
+    $item-top-height: 44px;
+
+    @at-root .data-bi-item {
+        &.auto-height {
+            height: auto;
+
+            .data-bi__contain {
+                height: auto;
+            }
+        }
+
+        height: $item-height;
+        overflow: hidden;
+
+        &.data-bi-small-item {
+            height: $small-item-height;
+
+            .data-bi__contain {
+                height: $small-item-height - $item-top-height;
+                overflow: hidden;
+                // &.has-border {
+                //     border-top: 1px solid #ddd;
+                //     padding-top: 10px;
+                // }
+            }
+        }
+
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 3px;
+        border: 1px solid #DDDDDD;
+        margin-bottom: 20px;
+
+        .data-bi__top {
+            height: $item-top-height;
+            line-height: 26px;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            position: relative;
+
+            &__body {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%)
+            }
+        }
+
+        .data-bi__top__title {
+            display: inline-block;
+            line-height: 1;
+            padding-left: 10px;
+            // margin-top: 7px;
+            border-left: 3px solid $primary-color;
+
+            &.no-border {
+                border-left: 0;
+                padding-left: 0
+            }
+        }
+
+        .data-bi__contain {
+            height: $item-height - $item-top-height;
+            overflow-y: auto;
+
+            &.has-border {
+                border-top: 1px solid #ddd;
+                padding-top: 10px;
+            }
+        }
+
+        // table
+        .el-table {
+
+            th,
+            td {
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+        }
+    }
+}
+
+.a-more {
+    color: #666;
+    text-decoration: none;
+}
+
+.data-bi-map {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .data-bi-item {
+        height: 100%;
+        min-height: 600px;
+
+        .data-bi__contain {
+            height: 100%;
+            min-height: 530px;
+        }
+    }
+}
+
+.echarts {
+    &.vma-chart {
+        width: 100%;
+        height: 280px;
+    }
+
+    &.vma-small-chart {
+        width: 100%;
+        height: 210px;
+    }
+
+    &.vma-chart-map {
+        width: 100%;
+        height: 500px;
+    }
+}

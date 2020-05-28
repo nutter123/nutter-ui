@@ -17,8 +17,7 @@
         "vue": "^2.6.11",
         "vue-cookie": "^1.1.4"
     },
-    "peerDependencies": {
-    },
+    "peerDependencies": {},
     "scripts": {
         "build": "npm run build:umd",
         "build:browser": "cross-env NODE_ENV=production rollup --config build/rollup.config.browser.js",

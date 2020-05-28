@@ -1,348 +1,76 @@
+//框架-初试样式重置
 @import './helper/_variable.scss';
 
 html,
 body {
-    width: 100%;
-    min-height: 100%;
-    height: 100%;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-    color: $font-color;
-    box-sizing: border-box;
-    font-family: "PingFang SC", Microsoft YaHei, \\5FAE\8F6F\96C5\9ED1, Arial, sans-serif
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: $font-color;
+  box-sizing: border-box;
+  font-family: "PingFang SC", Microsoft YaHei, \\5FAE\8F6F\96C5\9ED1, Arial, sans-serif
 }
 
 input,
 textarea,
 select,
 button {
-    font-family: "PingFang SC", Microsoft YaHei, \\5FAE\8F6F\96C5\9ED1, Arial, sans-serif
+  font-family: "PingFang SC", Microsoft YaHei, \\5FAE\8F6F\96C5\9ED1, Arial, sans-serif
 }
 
 p {
-    line-height: 20px;
+  line-height: 20px;
 }
 
 ul,
 li,
 p {
-    margin: 0;
-    padding: 0;
-    list-style: none
+  margin: 0;
+  padding: 0;
+  list-style: none
 }
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
-    border: 1px solid #CCC !important;
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  border: 1px solid #CCC !important;
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 input[type="number"] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }
 
-.clearfix:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden
-}
+
 
 *,
 body,
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.fl {
-    float: left;
-}
 
-.fr {
-    float: right;
-}
-
-.rlt {
-    position: relative;
-}
-
-.abs {
-    position: absolute;
-}
-
-.dn {
-    display: none;
-}
-
-.db {
-    display: block;
-}
-
-.dib {
-    display: inline-block;
-}
-
-.tc {
-    text-align: center;
-}
-
-.df {
-    display: -webkit-box;
-    /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
-    display: -moz-box;
-    /* Firefox 17- */
-    display: -webkit-flex;
-    /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
-    display: -moz-flex;
-    /* Firefox 18+ */
-    display: -ms-flexbox;
-    /* IE 10 */
-    display: flex;
-    /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
-}
-
-.df-center {
-    display: flex;
-    align-items: center;
-}
-
-.flex1,
-.flex-one {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    width: auto;
-    overflow: hidden;
-
-    &>div {
-        display: block
-    }
-}
-
-.flex-16 {
-    flex: 1;
-    overflow: hidden;
-    height: 16px;
-}
-
-.tl {
-    text-align: left;
-}
-
-.tr {
-    text-align: right;
-}
-
-.ell,
-.toe {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.ell2,
-.toe2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
-
-.bd,
-.border-solid {
-    border: 1px solid #ddd
-}
-
-.bl {
-    border-left: 1px solid #ddd
-}
-
-.bt {
-    border-top: 1px solid #ddd
-}
-
-.br {
-    border-right: 1px solid #ddd
-}
-
-.bb {
-    border-bottom: 1px solid #ddd
-}
-
-.hi {
-    height: inherit
-}
-
-.fb {
-    font-weight: bold;
-}
-
-.fc-gray {
-    color: #888
-}
-
-.fc-normal {
-    color: #333
-}
-
-.fc-warn {
-    color: #E66565
-}
-
-.fc-red {
-    color: #F56C6C;
-}
-
-.fc-sucess {
-    color: $success-color
-}
-
-.fc-black {
-    color: #000
-}
-
-.fc-blue {
-    color: $primary-color;
-}
-
-.fc3 {
-    color: #333;
-}
-
-.fc6 {
-    color: #666;
-}
-
-.fc8 {
-    color: #888;
-}
-
-.fc9 {
-    color: #999;
-}
-
-.text-primary,
-.primary-link,
-.text-link {
-    color: $primary-color;
-}
-
-.info-link,
-.text-info {
-    color: $info-color;
-}
-
-.success-link,
-.text-success {
-    color: $success-color;
-}
-
-.warning-link,
-.text-warning {
-    color: $warning-color;
-}
-
-.error-link,
-.text-error {
-    color: $error-color;
-}
-
-.primary-link,
-.info-link,
-.success-link,
-.warning-link,
-.error-link,
-.text-link,
-.pointer {
-    cursor: pointer
-}
-
-.f12 {
-    font-size: 12px;
-}
-
-.f13 {
-    font-size: 13px;
-}
-
-.f14 {
-    font-size: 14px;
-}
-
-.f16 {
-    font-size: 16px;
-}
-
-.f18 {
-    font-size: 18px;
-}
-
-.f20 {
-    font-size: 20px;
-}
-
-.radius3 {
-    border-radius: 3px
-}
-
-.radius4 {
-    border-radius: 4px
-}
-
-.radius5 {
-    border-radius: 5px
-}
-
-.lh20 {
-    line-height: 20px
-}
 
 div.el-dialog__body {
-    padding: 20px;
+  padding: 20px;
 }
-
-// @veyhunk 移除错误样式 2019/3/21
-// button.el-button--text {
-//     padding-left: 0;
-//     padding-right: 0;
-//     min-width: auto;
-// }
 
 dd,
 dl,
 dt {
-    margin: 0;
-    padding: 0;
-}
-
-.panel-zindex {
-    z-index: 999 !important;
-}
-
-.vm {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.vt {
-    display: inline-block;
-    vertical-align: top;
-}
-
-.vb {
-    display: inline-block;
-    vertical-align: bottom;
+  margin: 0;
+  padding: 0;
 }
 
 i,
 b {
-    font-weight: normal;
-    font-style: normal;
+  font-weight: normal;
+  font-style: normal;
 }

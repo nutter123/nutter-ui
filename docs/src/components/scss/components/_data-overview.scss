@@ -1,0 +1,43 @@
+
+.data-overview {
+    @at-root .data-overview-item {
+        padding: 5px 10%;
+        border-radius: 3px;
+        border: 1px solid #ddd;
+        margin-bottom: 15px;
+        &.has-bg{
+          padding-bottom:0;
+          padding-right:5%;
+        }
+        .inner {
+            background-repeat: no-repeat;
+            background-position: right bottom;
+            background-color: transparent;
+            background-size: 40px 40px;
+            padding-bottom:20px;
+            &.dwsp {
+                background-image:url('../assets/img/dwsp.png')
+            }
+            &.dwpd {
+                background-image:url('../assets/img/dwpd.png')
+            }
+            &.djd {
+                background-image:url('../assets/img/djd.png')
+            }
+            &.dclgd {
+                background-image:url('../assets/img/dclgd.png')
+            }
+            &.dxj {
+                background-image:url('../assets/img/dxj.png')
+            }
+        }
+        .data-overview__top {
+            color: $primary-color;
+            font-size: 30px;
+        }
+        .data-overview__contain {
+            color: #666;
+            font-size: 13px;
+        }
+    }
+}

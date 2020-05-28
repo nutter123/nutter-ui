@@ -9,36 +9,6 @@
         <table-k v-if="activeIndex==2"></table-k>
       </el-tab-pane>
     </el-tabs>
-    <div class="page-main p0 df main__custom">
-      <div class="br width-100">
-        <el-row>
-          <el-col :span="3" :offset="1" class="setting-menu">
-            <div class="menu-top">所属产品</div>
-            <el-menu
-              :default-active="activeIndex"
-              class="el-menu-vertical-demo"
-              background-color="#fff"
-              text-color="#111"
-              active-text-color="#f5a623"
-              @select="onMenuSelect"
-            >
-              <el-menu-item index="1">
-                <span slot="title">腾云商家</span>
-              </el-menu-item>
-              <el-menu-item index="2">
-                <span slot="title">快递柜</span>
-              </el-menu-item>
-            </el-menu>
-          </el-col>
-          <el-col :span="20" v-show="activeIndex==1">
-            <table-t></table-t>
-          </el-col>
-          <el-col :span="20" v-show="activeIndex==2">
-            <table-k></table-k>
-          </el-col>
-        </el-row>
-      </div>
-    </div>
   </div>
 </template>
 <script>

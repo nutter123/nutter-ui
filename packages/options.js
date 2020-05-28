@@ -55,6 +55,9 @@ const options = {
         removeEmpty: true,
         returnResponseData: true
       },
+      transformRequest: {
+
+      },
       transformResponse: {
         hump: true
       }
