@@ -1,0 +1,70 @@
+.menu-manage-tree{
+  &.dict-list{
+    padding:0;
+    border-top:1px solid #ddd;
+    border-right:1px solid #ddd;
+    border-left:1px solid #ddd;
+    
+  }
+  .el-tree-node__content,.menus-item{
+    height: 42px;
+    line-height: 42px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom:1px solid #ddd;
+  }
+  .node-name{
+    padding:0 5px;
+  }
+  .is-active{
+      color: #00C1DE;
+  }
+   .menus-tree-node {
+    .flex1{
+      // max-width: 192px;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+    }
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    padding-right: 8px;
+    i{
+      font-size:18px;
+      color: #409eff;
+      &.fc9{
+        color: #999;
+        &:hover{
+          cursor: not-allowed;
+        }
+      }
+    }
+    i+i{
+      margin-left:10px
+    }
+  }
+}
+.left-tree{
+  height: 100%;
+}
+.el-tree-node__content{
+  &:hover{
+    .hover{
+      display: block;
+    }
+  }
+  .hover{
+    display: none;
+  }
+}
+.tree-button-box{
+  span{
+    transition: all .3s;
+    &:hover{
+      transform: scale(1.5);
+    }
+  }
+}

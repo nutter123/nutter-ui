@@ -1,3 +1,10 @@
+/*
+ * @Author: nutter
+ * @Date: 2020-05-28 10:26:29
+ * @LastEditors: nutter
+ * @LastEditTime: 2020-08-19 14:20:25
+ * @FilePath: \nutter-ui\packages\plugins\src\axios\index.js
+ */
 import axios from 'axios'
 import transformRequestFactory from './src/transformRequest'
 import transformResponseFactory from './src/transformResponse'

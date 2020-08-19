@@ -1,0 +1,32 @@
+
+
+
+$font-color             :#333;
+
+$primary-color          : #ffa400; //
+$info-color             : linear-gradient(#ffd100, #ffa400);; //
+$success-color          : #67c23a; //
+$warning-color          : #FEBF06; //
+$error-color            : #FF6c6c; //
+$link-color             : #2D8cF0;
+$link-hover-color       : lighten($link-color, 20%);
+$link-active-color      : darken($link-color, 5%);
+$selected-color         : shade($primary-color, 90%);
+$tooltip-color          : #fff;
+$subsidiary-color       : #80848f;
+$rate-star-color        : #f5a623;
+
+$menu-left-bg-color           : #42485B; 
+// layout 
+$layout-header-height: 50px;
+$layout-menu-width: 200px;
+
+
+$min-screen-width: 1366px;
+$min-screen-height: 500px;
+
+$border-color: #e6e6e6;
+$border-default-color: $border-color;
+
+
+

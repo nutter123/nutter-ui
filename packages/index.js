@@ -1,3 +1,10 @@
+/*
+ * @Author: nutter
+ * @Date: 2020-03-11 15:46:06
+ * @LastEditors: nutter
+ * @LastEditTime: 2020-08-19 14:19:45
+ * @FilePath: \nutter-ui\packages\index.js
+ */
 import './assets'
 
 // import options from './options'
