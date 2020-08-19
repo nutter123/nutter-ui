@@ -1,3 +1,10 @@
+/*
+ * @Author: nutter
+ * @Date: 2020-05-28 11:19:27
+ * @LastEditors: nutter
+ * @LastEditTime: 2020-08-19 11:14:31
+ * @FilePath: \nutter-ui\packages\utils\src\requireContext.js
+ */
 const flatRequireContext = context => {
   return Object.assign({}, context, context.default || {})
 }

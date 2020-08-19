@@ -1,3 +1,10 @@
+/*
+ * @Author: nutter
+ * @Date: 2020-05-28 11:19:27
+ * @LastEditors: nutter
+ * @LastEditTime: 2020-08-19 11:14:13
+ * @FilePath: \nutter-ui\packages\utils\src\eachOwn.js
+ */
 /**
  * 遍历对象的自有属性
  * @param obj 对象

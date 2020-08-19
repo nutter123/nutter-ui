@@ -1,3 +1,10 @@
+/*
+ * @Author: nutter
+ * @Date: 2020-03-14 11:41:18
+ * @LastEditors: nutter
+ * @LastEditTime: 2020-08-19 11:14:21
+ * @FilePath: \nutter-ui\packages\utils\src\http.js
+ */
 import axios from 'axios'
 
 const api = {
