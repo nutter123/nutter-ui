@@ -106,16 +106,28 @@
 }
 
 // 文字对齐
-.tl {
-    text-align: left;
-}
-
-.tc {
+.text-center {
     text-align: center;
 }
 
-.tr {
+.text-left {
+    text-align: left;
+}
+
+.text-right {
     text-align: right;
+}
+
+.fw-b {
+    font-weight: bold;
+}
+
+.fw-6 {
+    font-weight: 600;
+}
+
+.fw-5 {
+    font-weight: 500;
 }
 
 // 浮动与清除浮动
@@ -209,15 +221,94 @@ $propety in $distance-map {
     pointer-events: none;
 }
 
-//字体定位
-.text-center {
-    text-align: center;
+/* ==================
+          布局
+ ==================== */
+.no-scroll {
+    overflow: hidden;
 }
 
-.text-left {
-    text-align: left;
+.flex-align-center {
+    display: flex;
+    align-items: center;
 }
 
-.text-right {
-    text-align: right;
+.flex-row-center {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-c-c {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-a-c {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.flex-b-c {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-b-s {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.flex-s-c {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.flex-column-s-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.flex-column-c-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column-a-s {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.flex-column-a-e {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.flex-1 {
+    flex: 1;
 }

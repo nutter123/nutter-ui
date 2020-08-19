@@ -1,3 +1,5 @@
+@import './varibles.scss';
+
 .n-button {
     display: inline-block;
     padding: 3px 6px;
@@ -15,8 +17,13 @@
         padding: 0 20px;
         height: 40px;
         line-height: 40px;
-        background: $color-gray;
+        background: $bg-bar;
         font-size: 14px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .el-breadcrumb__inner {
+        color: $bg-bar-font !important;
     }
 }
 
@@ -74,5 +81,30 @@
             overflow: auto;
             padding: 0 15px 15px;
         }
+
+        .n-dialog-footer {
+            background: #fff;
+            width: calc(100% - 30px);
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            z-index: 999;
+            left: 15px;
+            bottom: 15px;
+            border-top: 1px solid #eee;
+            box-shadow: 0px -4px 8px -3px #ddd;
+        }
     }
+}
+
+.n-col-item {}
+
+.img-container {
+    font-size: 0;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
 }
