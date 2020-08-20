@@ -2,7 +2,7 @@
  * @Author: nutter
  * @Date: 2020-03-23 10:52:48
  * @LastEditors: nutter
- * @LastEditTime: 2020-08-19 11:27:00
+ * @LastEditTime: 2020-08-20 14:16:00
  * @FilePath: \nutter-ui\packages\components\index.js
  */
 import Button from './Button'
@@ -10,12 +10,14 @@ import Icon from './Icon'
 import Title from './Title'
 import Dialog from './Dialog'
 import ColItem from './ColItem'
+import Upload from './Upload'
 
 export * from './Button'
 export * from './Icon'
 export * from './Title'
 export * from './Dialog'
 export * from './ColItem'
+export * from './Upload'
 
 export default {
     install(Vue, opts = {}) {
@@ -24,6 +26,7 @@ export default {
         Vue.use(Title, opts.title);
         Vue.use(Dialog, opts.dialog);
         Vue.use(ColItem, opts.colItem);
+        Vue.use(Upload, opts.upload);
     }
 }
 // let components = []

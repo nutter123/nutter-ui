@@ -2,7 +2,7 @@
  * @Author: nutter
  * @Date: 2020-03-11 20:30:00
  * @LastEditors: nutter
- * @LastEditTime: 2020-08-19 14:21:09
+ * @LastEditTime: 2020-08-20 17:18:44
  * @FilePath: \nutter-ui\test\src\main.js
  */
 import Vue from 'vue'
@@ -15,7 +15,7 @@ import './axios';
 import 'element-ui/lib/theme-chalk/index.css'
 import '../../dist/style.css'
 import '../../dist/iconfonts/iconfont.css'
-// import '@/scss/base.scss'
+import config from '@/config'
 
 import {
   Base64
@@ -40,7 +40,18 @@ Vue.use(Base64);
 Vue.use(VueClipboard)
 Vue.config.productionTip = false
 Vue.use(ElementUI)
-Vue.use(nutterUi);
+Vue.use(nutterUi, {
+  third: {
+    qiniu: {
+      httpRequest: {
+        qiniuTokenUrl(type) {
+          // return `${config.qiniuUrl}common/${type}/qiniu_token`
+          return `${config.qiniuUrl}basics/v1.0/qiniu/token?type=${type}`;
+        }
+      }
+    }
+  }
+});
 // Vue.use(VueAsset, {
 //     // plugins: {
 //     //     axios: {

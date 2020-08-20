@@ -28,13 +28,13 @@
               </el-form-item>
             </el-col>
             <el-col :span="24">
-              <el-form-item label="品牌名称：" prop="companyName">
+              <el-form-item label="名称：" prop="companyName">
                 <el-input size="small" v-model="addForm.companyName" placeholder="请输入快递品牌名称"></el-input>
               </el-form-item>
             </el-col>
             <el-col :span="24">
               <el-form-item label="logo：" prop="logoUrl">
-                <at-image-upload
+                <n-upload-image
                   v-model="addForm.logoUrl"
                   :limit="1"
                   class="logo-container"
@@ -42,7 +42,7 @@
                   :singleFileSize="1"
                 >
                   <div slot="tip" class="el-upload__tip">(最多上传一张图片)</div>
-                </at-image-upload>
+                </n-upload-image>
               </el-form-item>
             </el-col>
             <el-col :span="24">
@@ -101,6 +101,16 @@ export default {
   computed: {
     show: {
       get: function () {
+        if (this.editStatus == true) {
+          console.log(this.info);
+          this.addForm = {
+            companyName: this.info.companyName,
+            logoUrl: this.info.logoUrl,
+            remark: this.info.remark,
+            sort: this.info.sort,
+            status: this.info.status,
+          };
+        }
         return this.dialogVisible;
       },
       set: function () {},
@@ -157,17 +167,7 @@ export default {
     };
   },
   components: {},
-  created() {
-    if (this.editStatus == true) {
-      this.addForm = {
-        companyName: this.info.companyName,
-        logoUrl: this.info.logoUrl,
-        remark: this.info.remark,
-        sort: this.info.sort,
-        status: this.info.status,
-      };
-    }
-  },
+  created() {},
   mounted() {},
   methods: {
     handleClose() {

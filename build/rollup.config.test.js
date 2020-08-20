@@ -1,10 +1,12 @@
 /*
  * @Author: nutter
- * @Date: 2020-03-12 08:25:46
+ * @Date: 2020-03-12 08:29:24
  * @LastEditors: nutter
- * @LastEditTime: 2020-08-20 16:35:46
- * @FilePath: \nutter-ui\build\rollup.config.base.js
+ * @LastEditTime: 2020-08-20 15:32:40
+ * @FilePath: \nutter-ui\build\rollup.config.test.js
  */
+//通用模块定义，以amd，cjs 和 iife 为一体
+import base from './rollup.config.base'
 import resolve from 'rollup-plugin-node-resolve'; //帮助 Rollup 查找外部模块，然后导入
 import commonjs from 'rollup-plugin-commonjs'; //将CommonJS模块转换为 ES2015 供 Rollup 处理
 import babel from "rollup-plugin-babel"; //让我们可以使用es6新特性来编写代码
@@ -31,26 +33,8 @@ const isDev = process.env.NODE_ENV !== 'production';
 function resolvePath(dir) {
     return path.join(__dirname, '..', dir)
 }
-const processSass = function (context, payload) {
-    return new Promise((resolve, reject) => {
-        sass.render({
-            file: context
-        }, function (err, result) {
-            console.log(result);
-            if (!err) {
-                resolve(result);
-            } else {
-                console.log(err);
-                reject(err)
-            }
-        });
-    })
-};
 
-export default {
-    input: ['packages/index'],
-    external: ['lodash', 'vue', 'axios', 'element-ui', 'extend'],
-    output: [],
+const config = Object.assign({}, base, {
     plugins: [
         builtins(),
         requireContext(), //遍历文件
@@ -88,5 +72,14 @@ export default {
         }),
         json(),
         !isDev && terser()
-    ]
-};
+    ],
+    output: {
+        exports: 'named',
+        name: 'nutterUi',
+        file: 'dist/main.umd.js',
+        format: 'umd'
+    }
+})
+
+
+export default config;

@@ -13,7 +13,7 @@
     "chart.js": "^2.8.0",
     "compression-webpack-plugin": "^2.0.0",
     "echarts": "^4.6.0",
-    "element-ui": "^2.12.0",
+    "element-ui": "^2.13.2",
     "es6-promise": "^4.2.5",
     "lodash": "^4.17.4",
     "md5": "^2.2.1",
@@ -29,6 +29,7 @@
     "vue-chartjs": "^3.4.2",
     "vue-clipboard2": "^0.3.0",
     "vue-element-web-asset": "^1.0.3",
+    "vue-hot-reload-api": "^2.3.4",
     "vue-router": "^2.2.0",
     "vuex": "^2.2.1"
   },

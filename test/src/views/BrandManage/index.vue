@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div>
     <n-title>快递品牌管理</n-title>
     <div class="pd-20">
       <el-card shadow="hover">
@@ -72,17 +72,16 @@
         ref="newWebsite"
         @after-save="afterAddSave"
       ></add-dialog>
-      <!-- <n-dialog v-model="addShow" title="新增品牌" @change="closeAddPanel" class="panel-zindex">
-        <new-website ref="newWebsite" @after-save="afterAddSave"></new-website>
-      </n-dialog>-->
-      <n-dialog v-model="editShow" title="修改品牌" @change="closeEditPanel" class="panel-zindex">
-        <new-website
-          ref="editWebsite"
-          :editStatus="true"
-          :info="editInfo"
-          @after-save="afterEditSave"
-        ></new-website>
-      </n-dialog>
+      <add-dialog
+        v-model="editShow"
+        title="修改品牌"
+        @change="closeEditPanel"
+        class="panel-zindex"
+        ref="editWebsite"
+        :editStatus="true"
+        :info="editInfo"
+        @after-save="afterEditSave"
+      ></add-dialog>
     </div>
   </div>
 </template>
@@ -90,7 +89,6 @@
 import authButtonMixin from "@/mixins/authButton";
 import searchForm from "./components/SearchForm";
 import tableMixin from "@/mixins/tableMixin";
-import newWebsite from "./components/New";
 import addDialog from "./components/AddDialog";
 // import { fmt } from "@/utils/index";
 export default {
@@ -103,7 +101,6 @@ export default {
     };
   },
   components: {
-    newWebsite,
     searchForm,
     addDialog,
   },

@@ -1,12 +1,11 @@
-// import extend from 'extend'
-import VueCookie from 'vue-cookie'
+import extend from 'extend'
+import {
+  randRange
+} from '@/utils/src/randText'
 import axios from 'axios'
 // import {
-//   randRange
-// } from './utils/src/randText'
-// import {
 //   warn
-// } from './log'
+// } from '@/log'
 
 const options = {
   debug: true,
@@ -29,40 +28,7 @@ const options = {
   // 插件安装配置
   // false不安装
   // 详细配置各插件中查看
-  plugins: {
-    axios: {
-      defaults: {},
-      interceptor: {
-        applicationForm: true,
-        dataToUnderline: true,
-        disableCache: true,
-        errorHandle: true,
-        loading: true,
-        authMac: {
-          MAC_ID: '2YotnFZFEjr1zCsicMWpAA',
-          MAC_KEY: 'mac_key',
-          SESSION_ID: 'session_id',
-          decode: true,
-          getMacKey() {
-            let macKey = VueCookie.get(this.MAC_KEY) || ''
-            return this.decode ? decodeURIComponent(macKey) : macKey
-          },
-          getSessionId() {
-            let sessionId = VueCookie.get(this.SESSION_ID) || ''
-            return this.decode ? decodeURIComponent(sessionId) : sessionId
-          }
-        },
-        removeEmpty: true,
-        returnResponseData: true
-      },
-      transformRequest: {
-
-      },
-      transformResponse: {
-        hump: true
-      }
-    }
-  },
+  plugins: {},
 
   // 过滤器安装配置
   // false不安装
@@ -127,10 +93,11 @@ const options = {
             method: 'GET',
             responseType: 'json'
           }).then(data => {
+            let datas = data.data;
             return {
-              domain: data.domainUrl,
-              zoneUrl: this.getZoneUrl(data.qiniuZone.upUrls),
-              token: data.token
+              domain: datas.domainUrl,
+              zoneUrl: this.getZoneUrl(datas.qiniuZone.upUrls),
+              token: datas.token
             }
           })
         },
@@ -138,13 +105,13 @@ const options = {
          * 取七牛上传地址
          * @param {*} qiniuZone
          */
-        // getZoneUrl(qiniuZone) {
-        //   if (Array.isArray(qiniuZone)) {
-        //     let len = qiniuZone.length
-        //     return qiniuZone[randRange(0, len - 1)]
-        //   }
-        //   return String(qiniuZone)
-        // }
+        getZoneUrl(qiniuZone) {
+          if (Array.isArray(qiniuZone)) {
+            let len = qiniuZone.length
+            return qiniuZone[randRange(0, len - 1)]
+          }
+          return String(qiniuZone)
+        }
       }
     }
   },
@@ -174,8 +141,8 @@ const options = {
   }
 }
 
-// export const merge = opts => {
-//   return extend(true, options, opts)
-// }
+export const merger = opts => {
+  return extend(true, options, opts)
+}
 
 export default options

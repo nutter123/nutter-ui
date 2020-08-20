@@ -1,6 +1,13 @@
+<!--
+ * @Author: nutter
+ * @Date: 2020-08-19 14:05:01
+ * @LastEditors: nutter
+ * @LastEditTime: 2020-08-20 18:30:52
+ * @FilePath: \nutter-ui\test\src\common\App.vue
+-->
 <template>
   <div id="app" class="app-container df">
-    <div class="layout-content flex1">
+    <div class="main layout-content">
       <router-view></router-view>
     </div>
     <!-- <layout></layout> -->
@@ -10,24 +17,19 @@
 import layout from "./layout/index";
 export default {
   name: "app",
-  data: function() {
+  data: function () {
     return {
-      routes: {}
+      routes: {},
     };
   },
   components: {
-    layout
+    layout,
   },
   created() {},
   computed: {},
-  mounted() {}
+  mounted() {},
 };
 </script>
-
-
-
-
-
 <style>
 body {
   overflow: auto;
@@ -37,5 +39,10 @@ body {
   width: 100%;
   height: 100%;
   min-width: 600px;
+  overflow: hidden;
+}
+.main {
+  overflow: auto;
+  height: 100%;
 }
 </style>
