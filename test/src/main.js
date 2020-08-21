@@ -2,7 +2,7 @@
  * @Author: nutter
  * @Date: 2020-03-11 20:30:00
  * @LastEditors: nutter
- * @LastEditTime: 2020-08-20 17:18:44
+ * @LastEditTime: 2020-08-21 17:43:31
  * @FilePath: \nutter-ui\test\src\main.js
  */
 import Vue from 'vue'
@@ -23,7 +23,6 @@ import {
 import BaiduMap from 'vue-baidu-map'
 import VueClipboard from 'vue-clipboard2';
 import authButton from '@/components/authButton'
-
 import {
   browserCheck,
   browserCheckNotice
@@ -50,50 +49,8 @@ Vue.use(nutterUi, {
         }
       }
     }
-  }
+  },
 });
-// Vue.use(VueAsset, {
-//     // plugins: {
-//     //     axios: {
-//     //         defaults: {
-//     //             baseURL: config.host,
-//     //             headers: {
-//     //                 'session_id': VueCookie.get('session_id')
-//     //             }
-//     //         },
-//     //         interceptor: {
-//     //             authMac: false,
-//     //             dataToUnderline: false,
-//     //             errorHandle: {
-//     //                 errorHandle(error) {
-//     //                     if (error.response.status == 400 || error.response.status == 500) {
-//     //                         if (error.response.data && error.response.data.msg) {
-//     //                             let msg = error.response.data.msg.split('，')[0];
-//     //                             Message({
-//     //                                 message: msg,
-//     //                                 type: 'error',
-//     //                                 duration: 2000,
-//     //                                 showClose: true
-//     //                             })
-//     //                         }
-//     //                     }
-//     //                 }
-//     //             }
-//     //         }
-//     //     }
-//     // },
-//     third: {
-//         qiniu: {
-//             httpRequest: {
-//                 qiniuTokenUrl(type) {
-//                     // return `${config.qiniuUrl}common/${type}/qiniu_token`
-//                     return `${config.qiniuUrl}basics/v1.0/qiniu/token?type=${type}`;
-//                 }
-//             }
-//         }
-//     }
-// })
-
 router.beforeEach((to, from, next) => {
   /* 路由发生变化修改页面title */
   if (to.meta.title) {
@@ -102,7 +59,7 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
-Vue.prototype.$apis = api
+Vue.prototype.$apis = api;
 Vue.prototype.$token = 'MzJkaVl6Z3pNVEZpTlRRd05tSmtaVGd4TW1JelkyRTFOVEUxT1RkbFlqa3hUUWJjODMxMWI1NDA2YmRlODEyYjNjYTU1MTU5N2ViOTFN.mhvrtm8ev7bpaoso7az65uioxxhtdpet.2cdb0713541670bba23f95a5a303e39f'
 // vue-AMap vue高德地图组件
 //https://github.com/ElemeFE/vue-amap

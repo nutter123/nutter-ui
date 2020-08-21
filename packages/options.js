@@ -1,4 +1,5 @@
 import extend from 'extend'
+import VueCookie from 'vue-cookie'
 import {
   randRange
 } from '@/utils/src/randText'
@@ -69,7 +70,35 @@ const options = {
     // 扩展Vue实例加载中方法，false则不安装
     loader: {}
   },
-
+  axios: {
+    defaults: {},
+    interceptor: {
+      applicationForm: true,
+      dataToUnderline: true,
+      disableCache: true,
+      errorHandle: true,
+      loading: true,
+      authMac: {
+        MAC_ID: '2YotnFZFEjr1zCsicMWpAA',
+        MAC_KEY: 'mac_key',
+        SESSION_ID: 'session_id',
+        decode: true,
+        getMacKey() {
+          let macKey = VueCookie.get(this.MAC_KEY) || ''
+          return this.decode ? decodeURIComponent(macKey) : macKey
+        },
+        getSessionId() {
+          let sessionId = VueCookie.get(this.SESSION_ID) || ''
+          return this.decode ? decodeURIComponent(sessionId) : sessionId
+        }
+      },
+      removeEmpty: true,
+      returnResponseData: true
+    },
+    transformResponse: {
+      hump: true
+    }
+  },
   // 第三方安装配置
   // false不安装
   third: {

@@ -2,7 +2,7 @@
     "name": "nutter-ui",
     "description": "nutter's element ui",
     "authors": "nutter",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "main": "dist/main.umd.js",
     "module": "dist/main.esm.js",
     "unpkg": "dist/main.min.js",
@@ -13,6 +13,7 @@
     ],
     "dependencies": {
         "axios": "^0.19.2",
+        "crypto-js": "^4.0.0",
         "element-ui": "^2.13.0",
         "vue": "^2.6.11",
         "vue-cookie": "^1.1.4"

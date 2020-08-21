@@ -2,7 +2,7 @@
  * @Author: nutter
  * @Date: 2020-03-12 08:25:46
  * @LastEditors: nutter
- * @LastEditTime: 2020-08-20 16:35:46
+ * @LastEditTime: 2020-08-21 17:33:24
  * @FilePath: \nutter-ui\build\rollup.config.base.js
  */
 import resolve from 'rollup-plugin-node-resolve'; //帮助 Rollup 查找外部模块，然后导入
@@ -31,25 +31,25 @@ const isDev = process.env.NODE_ENV !== 'production';
 function resolvePath(dir) {
     return path.join(__dirname, '..', dir)
 }
-const processSass = function (context, payload) {
-    return new Promise((resolve, reject) => {
-        sass.render({
-            file: context
-        }, function (err, result) {
-            console.log(result);
-            if (!err) {
-                resolve(result);
-            } else {
-                console.log(err);
-                reject(err)
-            }
-        });
-    })
-};
+// const processSass = function (context, payload) {
+//     return new Promise((resolve, reject) => {
+//         sass.render({
+//             file: context
+//         }, function (err, result) {
+//             console.log(result);
+//             if (!err) {
+//                 resolve(result);
+//             } else {
+//                 console.log(err);
+//                 reject(err)
+//             }
+//         });
+//     })
+// };
 
 export default {
     input: ['packages/index'],
-    external: ['lodash', 'vue', 'axios', 'element-ui', 'extend'],
+    external: ['vue', 'axios', 'element-ui', 'extend', 'vue-cookie', 'crypto-js'],
     output: [],
     plugins: [
         builtins(),

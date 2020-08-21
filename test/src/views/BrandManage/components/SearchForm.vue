@@ -2,7 +2,7 @@
  * @Author: nutter
  * @Date: 2020-08-03 13:46:31
  * @LastEditors: nutter
- * @LastEditTime: 2020-08-21 14:46:46
+ * @LastEditTime: 2020-08-21 15:25:18
  * @FilePath: \nutter-ui\test\src\views\BrandManage\components\SearchForm.vue
 -->
 <template>
@@ -14,7 +14,7 @@
       ref="searchForm"
       label-width="130px"
       :model="query"
-      class="search-form"
+      class="border-b"
     >
       <el-form-item prop="companyName" label="快递品牌名称：">
         <el-input
@@ -73,7 +73,4 @@ export default {
 </script>
 
 <style lang="scss">
-.search-form {
-  border-bottom: 1px solid #eeeeee;
-}
 </style>

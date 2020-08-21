@@ -11,6 +11,7 @@ import Components from './components'
 // import Plugins from './plugins'
 // import Filters from './filters'
 import Third from './third'
+import axios from './plugins/axios'
 import * as utils from './utils'
 import options, {
     merger as mergeOptions
@@ -28,9 +29,9 @@ const install = function (Vue, opts = {}) {
         Vue.use(Components, opts.components)
     }
 
-    // if (opts.plugins !== false) {
-    //     Vue.use(Plugins, opts.plugins)
-    // }
+    if (opts.axios !== false) {
+        Vue.use(axios, opts.axios)
+    }
 
     // if (opts.filters !== false) {
     //     Vue.use(Filters, opts.filters)

@@ -18,7 +18,7 @@
           <el-table-column label="序号" prop="sort" min-width="20"></el-table-column>
           <el-table-column label="LOGO" prop="logoUrl" min-width="80">
             <template slot-scope="scope">
-              <el-image :src="scope.row.logoUrl" fit="fit" style="width:30px;heigth:30px"></el-image>
+              <el-image :src="scope.row.logoUrl" fit="fit" style="width:30px;height:30px"></el-image>
             </template>
           </el-table-column>
           <el-table-column label="快递品牌名称" prop="companyName" min-width="80"></el-table-column>
@@ -49,19 +49,16 @@
             </template>
           </el-table-column>
         </el-table>
-        <div class="page-wrapper">
-          <!-- 分页组件 -->
-          <el-pagination
-            @size-change="handleSizeChange"
-            @current-change="handleCurrentChange"
-            :current-page="currentPage"
-            :page-size="tableParams.pageSize"
-            :page-sizes="tableParams.pageSizes"
-            :total="tableParams.total"
-            :layout="tableParams.layout"
-            class="mt-15 text-right"
-          ></el-pagination>
-        </div>
+        <el-pagination
+          @size-change="handleSizeChange"
+          @current-change="handleCurrentChange"
+          :current-page="currentPage"
+          :page-size="tableParams.pageSize"
+          :page-sizes="tableParams.pageSizes"
+          :total="tableParams.total"
+          :layout="tableParams.layout"
+          class="mt-15 text-right"
+        ></el-pagination>
       </el-card>
       <add-dialog
         v-model="addShow"
@@ -207,43 +204,3 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-.menu-top {
-  background: #f5a623;
-  font-weight: bolder;
-  height: 50px;
-  line-height: 50px;
-  color: #fff;
-}
-.lh40 {
-  line-height: 40px;
-}
-.setting-menu {
-  height: 500px;
-  margin-top: 10px;
-  text-align: center;
-  border: 1px solid #c5c5c5;
-}
-.pl-20 {
-  padding-left: 20px;
-}
-.invite-input {
-  width: 60%;
-}
-.invite-button {
-  margin-left: 20px;
-}
-.invite-info {
-  color: #999;
-  font-size: 13px;
-  margin-top: 10px;
-}
-.n-table-header {
-  background-color: #f2f3f6 !important;
-  font-weight: bold;
-}
-.n-table-border {
-  border: 1px solid #f2f3f6;
-  border-radius: 3px;
-}
-</style>
