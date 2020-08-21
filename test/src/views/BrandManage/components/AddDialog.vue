@@ -1,68 +1,61 @@
 <template>
   <div>
-    <el-dialog :title="title" :visible.sync="show" center @close="handleClose">
+    <el-dialog
+      :title="title"
+      :visible.sync="show"
+      @close="handleClose"
+      width="520px"
+      custom-class="n-dialog"
+    >
       <div class="pb80 pt20">
         <el-form
-          inline
           ref="infoForm"
           :model="addForm"
           :rules="rules"
-          label-width="130px"
+          label-width="100px"
           class="info-form"
         >
-          <el-row :gutter="20">
-            <el-col :span="24">
-              <el-form-item label="状态：" prop="status">
-                <el-switch
-                  v-model="addForm.status"
-                  :active-value="1"
-                  :inactive-value="0"
-                  active-color="#13ce66"
-                  inactive-color="#ff4949"
-                ></el-switch>
-              </el-form-item>
-            </el-col>
-            <el-col :span="24">
-              <el-form-item label="序号：" prop="sort">
-                <el-input size="small" v-model="addForm.sort" placeholder="请输入序号"></el-input>
-              </el-form-item>
-            </el-col>
-            <el-col :span="24">
-              <el-form-item label="名称：" prop="companyName">
-                <el-input size="small" v-model="addForm.companyName" placeholder="请输入快递品牌名称"></el-input>
-              </el-form-item>
-            </el-col>
-            <el-col :span="24">
-              <el-form-item label="logo：" prop="logoUrl">
-                <n-upload-image
-                  v-model="addForm.logoUrl"
-                  :limit="1"
-                  class="logo-container"
-                  httpRequest="qiniu"
-                  :singleFileSize="1"
-                >
-                  <div slot="tip" class="el-upload__tip">(最多上传一张图片)</div>
-                </n-upload-image>
-              </el-form-item>
-            </el-col>
-            <el-col :span="24">
-              <el-form-item label="备注：" prop="remark">
-                <el-input
-                  size="small"
-                  type="textarea"
-                  style="min-width:300px"
-                  :autosize="{ minRows: 2, maxRows: 4}"
-                  v-model="addForm.remark"
-                  placeholder="请输入备注"
-                ></el-input>
-              </el-form-item>
-            </el-col>
-          </el-row>
+          <el-form-item label="状态：" prop="status">
+            <el-switch
+              v-model="addForm.status"
+              :active-value="1"
+              :inactive-value="0"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            ></el-switch>
+          </el-form-item>
+          <el-form-item label="序号：" prop="sort">
+            <el-input size="small" v-model="addForm.sort" placeholder="请输入序号"></el-input>
+          </el-form-item>
+          <el-form-item label="名称：" prop="companyName">
+            <el-input size="small" v-model="addForm.companyName" placeholder="请输入快递品牌名称"></el-input>
+          </el-form-item>
+          <el-form-item label="logo：" prop="logoUrl">
+            <n-upload-image
+              v-model="addForm.logoUrl"
+              :limit="1"
+              class="logo-container"
+              httpRequest="qiniu"
+              :singleFileSize="1"
+            >
+              <div slot="tip" class="el-upload__tip">(最多上传一张图片)</div>
+            </n-upload-image>
+          </el-form-item>
+          <el-form-item label="备注：" prop="remark">
+            <el-input
+              size="small"
+              type="textarea"
+              style="min-width:300px"
+              :autosize="{ minRows: 2, maxRows: 4}"
+              v-model="addForm.remark"
+              placeholder="请输入备注"
+            ></el-input>
+          </el-form-item>
         </el-form>
       </div>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="resetForm">重置</el-button>
-        <el-button type="primary" @click="submitForm">保存</el-button>
+        <el-button size="small" @click="resetForm">重置</el-button>
+        <el-button size="small" type="primary" @click="submitForm">保存</el-button>
       </div>
     </el-dialog>
   </div>
@@ -221,3 +214,12 @@ export default {
   },
 };
 </script>
+<style lang="scss">
+.info-form {
+  width: 460px;
+}
+.dialog-footer {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+</style>

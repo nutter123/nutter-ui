@@ -10,20 +10,19 @@
         <el-table
           :data="tableParams.list"
           type="selection"
-          stripe
-          border
           tooltip-effect="light"
           ref="table"
-          class="mt-20 x-expand-table"
+          class="mt-20 n-table-border"
+          header-cell-class-name="n-table-header"
         >
-          <el-table-column label="序号" align="center" prop="sort" min-width="20"></el-table-column>
-          <el-table-column label="LOGO" align="center" prop="logoUrl" min-width="80">
+          <el-table-column label="序号" prop="sort" min-width="20"></el-table-column>
+          <el-table-column label="LOGO" prop="logoUrl" min-width="80">
             <template slot-scope="scope">
               <el-image :src="scope.row.logoUrl" fit="fit" style="width:30px;heigth:30px"></el-image>
             </template>
           </el-table-column>
-          <el-table-column label="快递品牌名称" align="center" prop="companyName" min-width="80"></el-table-column>
-          <el-table-column label="状态" align="center" prop="status" min-width="80">
+          <el-table-column label="快递品牌名称" prop="companyName" min-width="80"></el-table-column>
+          <el-table-column label="状态" prop="status" min-width="80">
             <template slot-scope="scope">
               <el-tag
                 :type="(scope.row.status <= 0) ? 'danger' : 'success'"
@@ -31,8 +30,8 @@
               >{{scope.row.status | checkStatus}}</el-tag>
             </template>
           </el-table-column>
-          <el-table-column label="备注" align="center" prop="remark" min-width="80"></el-table-column>
-          <el-table-column label="操作" align="center" fixed="right" min-width="100">
+          <el-table-column label="备注" prop="remark" min-width="80"></el-table-column>
+          <el-table-column label="操作" align="right" fixed="right" min-width="100">
             <template slot-scope="scope">
               <!-- 列表操作菜单 -->
               <el-button
@@ -208,7 +207,7 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="scss">
 .menu-top {
   background: #f5a623;
   font-weight: bolder;
@@ -238,5 +237,13 @@ export default {
   color: #999;
   font-size: 13px;
   margin-top: 10px;
+}
+.n-table-header {
+  background-color: #f2f3f6 !important;
+  font-weight: bold;
+}
+.n-table-border {
+  border: 1px solid #f2f3f6;
+  border-radius: 3px;
 }
 </style>

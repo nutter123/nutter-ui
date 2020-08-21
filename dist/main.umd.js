@@ -935,7 +935,7 @@
       "el-col",
       {
         staticClass: "n-col-item",
-        attrs: { xs: 24, sm: 12, md: 8, lg: 6, xl: 4 }
+        attrs: { xs: 24, sm: 12, md: 10, lg: 8, xl: 6 }
       },
       [_vm._t("default")],
       2
