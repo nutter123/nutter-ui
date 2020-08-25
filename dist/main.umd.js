@@ -3951,507 +3951,13 @@
    */
   var Third = {};
 
-  var flatArray = (function (data) {
-    for (var key in data) {
-      if (data.hasOwnProperty(key) && data[key] instanceof Array) {
-        data[key] = data[key].join(',');
-      }
-    }
-
-    return data;
-  });
-
-  var transformRequestFactory = {
-    install: function install(transformRequestInterceptor) {
-      var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      if (opts.flatArray) {
-        transformRequestInterceptor.push(flatArray);
-      }
-    }
-  };
-
-  function hump (data) {
-    if (data && _typeof_1(data) === 'object' && !(data instanceof Blob)) {
-      return dataToHump(data);
-    }
-
-    return data;
-  }
-
-  var transformResponseFactory = {
-    install: function install(transformResponseInterceptor) {
-      var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-      if (opts.hump) {
-        transformResponseInterceptor.push(hump);
-      }
-    }
-  };
-
   /*
    * @Author: nutter
-   * @Date: 2020-08-21 16:31:18
+   * @Date: 2020-08-25 15:20:13
    * @LastEditors: nutter
-   * @LastEditTime: 2020-08-21 16:34:38
-   * @FilePath: \nutter-ui\packages\plugins\axios\src\interceptor\src\applicationForm.js
+   * @LastEditTime: 2020-08-25 16:15:21
+   * @FilePath: \nutter-ui\packages\plugins\_axios\index.js
    */
-
-  var require_context_module_0_0 = {
-    request: function request(config) {
-      // config.contentType || config.ContentType
-      if (isApplicationForm(config.contentType || config.ContentType)) {
-        config.headers = Object.assign({
-          'Content-Type': 'application/x-www-form-urlencoded;chartset=UTF-8'
-        }, config.headers);
-
-        if (config.data && type(config.data) === 'object') {
-          var params = new URLSearchParams();
-          eachOwn(config.data, function (value, key) {
-            params.append(key, value);
-          });
-          config.data = params;
-        }
-      }
-
-      return config;
-    }
-  };
-
-  function _defineProperty(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-
-    return obj;
-  }
-
-  var defineProperty = _defineProperty;
-
-  var authorization = function authorization(_ref) {
-    var url = _ref.url,
-        method = _ref.method,
-        macId = _ref.macId,
-        macKey = _ref.macKey;
-    var urlDecomposion = decomposeUrl(url);
-    return authMac({
-      macId: macId,
-      macKey: macKey,
-      httpMethod: method,
-      requestURI: urlDecomposion.uri,
-      host: urlDecomposion.host
-    });
-  };
-
-  var isDomain = function () {
-    return !/^\d+$/.test(location.hostname.replace(/\./g, ''));
-  }(); // hmac 认证
-  // https://coding.net/u/chenzuopeng/p/wm-uc/git
-
-
-  var require_context_module_0_1 = {
-    install: function install(requestInterceptor, responseInterceptor) {
-      var opts = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      requestInterceptor.use(function (config) {
-        // mac = false 接口不做hmac认证
-        if (config.mac !== false && config.headers.Authorization == null) {
-          if (!isDomain && console && console.log) {
-            console.log('Cookie is used in non-domain, confirm that in your expectation.');
-          }
-
-          Object.assign(config.headers, defineProperty({
-            Authorization: authorization(Object.assign({
-              macId: opts.MAC_ID,
-              macKey: opts.getMacKey()
-            }, config))
-          }, opts.SESSION_ID, opts.getSessionId()));
-        }
-
-        return config;
-      });
-    }
-  };
-
-  var require_context_module_0_2 = {
-    request: function request(config) {
-      if (config.dataToUnderline !== false) {
-        var params = config.params || {};
-
-        if (/\?/.test(config.url)) {
-          var urlDecomposion = decomposeUrl(config.url);
-          config.url = config.url.replace(/(\?.*)$/, '');
-          config.params = dataToUnderline(Object.assign(params, urlDecomposion.params));
-        } else {
-          config.params = dataToUnderline(params);
-        }
-
-        if (config.method.toLowerCase() !== 'get') {
-          config.data = dataToUnderline(config.data);
-        }
-      }
-
-      return config;
-    }
-  };
-
-  // GET禁用缓存 config.cache = true 跳过该拦截器
-  var require_context_module_0_3 = {
-    request: function request(config) {
-      if (config.method.toLowerCase() === 'get' && config.cache !== true) {
-        config.params = config.params || {};
-        config.params.__ = new Date().getTime();
-      }
-
-      return config;
-    }
-  };
-
-  function handleError(data) {
-    elementUi.Message({
-      // 格式待定
-      message: data.errMsg,
-      type: "warning",
-      duration: 10000,
-      showClose: true
-    });
-  }
-
-  function handleException(_ref) {
-    var status = _ref.status,
-        message = _ref.message,
-        stack = _ref.stack;
-    elementUi.MessageBox({
-      title: message || "系统提示",
-      message: "<div style='max-height: 250px; overflow: auto;'>".concat(stack, "</div>"),
-      type: "error",
-      showClose: true,
-      dangerouslyUseHTMLString: true,
-      callback: function callback(action, instance) {}
-    });
-  }
-
-  function netErrorTips(time) {
-    elementUi.Message({
-      message: "您的网络异常，请检查网络后重试!",
-      type: "warning",
-      duration: time,
-      showClose: true
-    });
-    setTimeout(elementUi.Message.closeAll, time);
-  } // 全局错误处理
-
-
-  var require_context_module_0_4 = {
-    options: {
-      errorHandle401: false,
-      // 全局错误处理器
-      errorHandle: function errorHandle(error, opts) {
-        if (error.response == null) {
-          handleException({
-            status: 500,
-            message: error.message,
-            stack: error.stack
-          });
-        } else if (error.response.status === 401) {
-          if (window.parent && window.parent !== window && window.parent.postMessage) {
-            window.parent.postMessage(JSON.stringify({
-              name: "error-401",
-              data: error
-            }), "*");
-          } else if (typeof opts.errorHandle401 === "function") {
-            opts.errorHandle401(error);
-          } else {
-            handleException({
-              status: error.response.status,
-              message: error.message,
-              stack: error.stack
-            });
-          }
-        } else if (error.response.data == null || _typeof_1(error.response.data) !== "object") {
-          handleException({
-            status: error.response.status,
-            message: error.message,
-            stack: error.stack
-          });
-        } else if (error.config.handleError !== false) {
-          handleError(error.response.data);
-        }
-      }
-    },
-    install: function install(requestInterceptor, responseInterceptor) {
-      var _this = this;
-
-      var opts = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      opts = Object.assign({}, this.options, opts);
-      responseInterceptor.use(function (response) {
-        return response;
-      }, function (error) {
-        if (error.config && error.config.errorHandle !== false) {
-          if (!error.response) {
-            netErrorTips(_this.opts.netErrorColseTime || 3000);
-          } else {
-            opts.errorHandle(error, opts);
-          }
-        }
-
-        return Promise.reject(error);
-      });
-    }
-  };
-
-  /*
-   * @Author: nutter
-   * @Date: 2020-08-21 16:48:16
-   * @LastEditors: nutter
-   * @LastEditTime: 2020-08-21 16:48:38
-   * @FilePath: \nutter-ui\packages\components\Loader\src\loader.js
-   */
-  var instance$1 = null;
-  var options$1 = {
-    fullscreen: true,
-    lock: true,
-    text: '拼命加载中...'
-  };
-
-  var getInstance$1 = function getInstance() {
-    // 有可能会出现多实例情况？
-    var mask = document.querySelector('.el-loading-mask');
-
-    if (mask && mask.parentNode) {
-      mask.parentNode.removeChild(mask);
-    }
-
-    return instance$1 = elementUi.Loading.service(options$1);
-  };
-
-  var Loader = {
-    show: function show() {
-      getInstance$1();
-    },
-    hide: function hide() {
-      if (instance$1) {
-        instance$1.close();
-        instance$1 = null;
-      }
-    }
-  }; // export to window
-
-  if (window) {
-    window.__$Loader__ = Loader;
-  }
-
-  var Loader$1 = {
-    mergeOptions: function mergeOptions() {
-      var opts = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      return options$1 = Object.assign(options$1, opts);
-    },
-    hassGlobalLoader: function hassGlobalLoader() {
-      // return window && window.parent && window.parent.__$Loader__
-      return false;
-    },
-    show: function show() {
-      if (this.hassGlobalLoader()) {
-        window.parent.__$Loader__.show();
-      } else {
-        Loader.show();
-      }
-    },
-    hide: function hide() {
-      if (this.hassGlobalLoader()) {
-        window.parent.__$Loader__.hide();
-      } else {
-        Loader.hide();
-      }
-    }
-  };
-
-  /*
-   * @Author: nutter
-   * @Date: 2020-08-21 16:31:18
-   * @LastEditors: nutter
-   * @LastEditTime: 2020-08-21 16:49:00
-   * @FilePath: \nutter-ui\packages\plugins\axios\src\interceptor\src\loading.js
-   */
-  var requestCount = 0;
-
-  var hideLoader = function hideLoader() {
-    var time = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 150;
-
-    if (--requestCount <= 0) {
-      setTimeout(function () {
-        Loader$1.hide();
-      }, time);
-    }
-  }; // ajax开始时显示loading 
-  // config.loading = false 禁用loading
-
-
-  var require_context_module_0_5 = {
-    request: function request(config) {
-      if (config.loading !== false) {
-        requestCount++;
-        Loader$1.show();
-      }
-
-      return config;
-    },
-    response: {
-      success: function success(response) {
-        if (response.config.loading !== false) {
-          hideLoader();
-        }
-
-        return response;
-      },
-      error: function error(_error) {
-        if (_error && _error.config && _error.config.loading !== false) {
-          hideLoader();
-        }
-
-        return Promise.reject(_error);
-      }
-    }
-  };
-
-  // config.mock = true 启用该拦截器
-
-  var require_context_module_0_6 = {
-    options: {
-      baseURL: ''
-    },
-    install: function install(requestInterceptor, responseInterceptor) {
-      var opts = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-
-      var _Object$assign = Object.assign({}, this.options, opts),
-          baseURL = _Object$assign.baseURL;
-
-      if (baseURL) {
-        requestInterceptor.use(function (config) {
-          if (config.mock === true) {
-            if (isAbsoluteUrl(config.url)) {
-              if (config.baseURL && config.url.indexOf(config.baseURL) === 0) {
-                config.url = config.url.replace(config.baseURL, '');
-                config.baseURL = baseURL;
-              }
-            } else {
-              config.baseURL = baseURL;
-            }
-          }
-
-          return config;
-        });
-      }
-    }
-  };
-
-  var require_context_module_0_7 = {
-    request: function request(config) {
-      if (config.removeEmpty === true) {
-        var params = config.params || {}; // 处理params的参数
-
-        params = removeEmpty(params); // 处理url上的参数
-
-        if (config.url.indexOf('?') > -1) {
-          var urlDecomposion = decomposeUrl(config.url);
-          config.url = config.url.replace(/(\?.*)$/, '');
-          params = Object.assign(params, removeEmpty(urlDecomposion.params));
-        }
-
-        config.params = params; // 处理data参数
-
-        if (config.method.toLowerCase() !== 'get') {
-          config.data = removeEmpty(config.data);
-        }
-      }
-
-      return config;
-    }
-  };
-
-  // 只返回response.data，该拦截器必须放置在所有response拦截器的最后
-  // config.dataOnly = false 跳过该拦截器
-  var require_context_module_0_8 = {
-    response: function response(_response) {
-      if (_response.config.dataOnly !== false) {
-        return _response.data;
-      }
-
-      return _response;
-    }
-  };
-
-  var interceptors = requireContextToObj(function () {
-    var map = {
-      'D:/项目/学习项目/nutter-ui/packages/plugins/axios/src/interceptor/src/applicationForm.js': require_context_module_0_0,
-      'D:/项目/学习项目/nutter-ui/packages/plugins/axios/src/interceptor/src/authMac.js': require_context_module_0_1,
-      'D:/项目/学习项目/nutter-ui/packages/plugins/axios/src/interceptor/src/dataToUnderline.js': require_context_module_0_2,
-      'D:/项目/学习项目/nutter-ui/packages/plugins/axios/src/interceptor/src/disableCache.js': require_context_module_0_3,
-      'D:/项目/学习项目/nutter-ui/packages/plugins/axios/src/interceptor/src/errorHandle.js': require_context_module_0_4,
-      'D:/项目/学习项目/nutter-ui/packages/plugins/axios/src/interceptor/src/loading.js': require_context_module_0_5,
-      'D:/项目/学习项目/nutter-ui/packages/plugins/axios/src/interceptor/src/mock.js': require_context_module_0_6,
-      'D:/项目/学习项目/nutter-ui/packages/plugins/axios/src/interceptor/src/removeEmpty.js': require_context_module_0_7,
-      'D:/项目/学习项目/nutter-ui/packages/plugins/axios/src/interceptor/src/returnResponseData.js': require_context_module_0_8
-    };
-
-    var req = function req(key) {
-      return map[key] || function () {
-        throw new Error("Cannot find module '" + key + "'.");
-      }();
-    };
-
-    req.keys = function () {
-      return Object.keys(map);
-    };
-
-    return req;
-  }());
-  var interceptorFactory = {
-    install: function install(requestInterceptor, responseInterceptor) {
-      var opts = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-      eachOwn(opts, function (value, name) {
-        if (value !== false && interceptors[name]) {
-          var interceptor = interceptors[name]; // 支持install模式
-          // 完全自定义处理
-
-          if (typeof interceptor.install === 'function') {
-            interceptor.install(requestInterceptor, responseInterceptor, value);
-          } // {
-          //    request: Function, 
-          //    response: Function(success)
-          //  } 
-          //  or
-          // {
-          //    request: Function, 
-          //    response: {
-          //      success: Function,
-          //      error: Function
-          //    }
-          //  }
-          else {
-              if (interceptor.request) {
-                requestInterceptor.use(interceptor.request);
-              }
-
-              if (interceptor.response) {
-                if (typeof interceptor.response === 'function') {
-                  responseInterceptor.use(interceptor.response);
-                } else {
-                  responseInterceptor.use(interceptor.response.success, interceptor.response.error);
-                }
-              }
-            }
-        }
-      });
-    }
-  };
-
   var axios = {
     install: function install(Vue) {
       var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -4462,26 +3968,41 @@
       }
 
       var _Object$assign = Object.assign(opts),
-          defaults = _Object$assign.defaults,
-          transformRequest = _Object$assign.transformRequest,
-          transformResponse = _Object$assign.transformResponse,
-          interceptor = _Object$assign.interceptor;
+          defaults = _Object$assign.defaults;
 
       if (defaults !== false) {
         Object.assign(axios$1.defaults, defaults);
-      }
+      } // 添加请求拦截器
 
-      if (transformRequest !== false) {
-        transformRequestFactory.install(axios$1.defaults.transformRequest, transformRequest);
-      }
 
-      if (transformResponse !== false) {
-        transformResponseFactory.install(axios$1.defaults.transformResponse, transformResponse);
-      }
+      axios$1.interceptors.request.use(function (config) {
+        // 在发送请求之前做些什么
+        console.log('发送请求');
+        return config;
+      }, function (error) {
+        // 对请求错误做些什么
+        return Promise.reject(error);
+      }); // 添加响应拦截器
 
-      if (interceptor !== false) {
-        interceptorFactory.install(axios$1.interceptors.request, axios$1.interceptors.response, interceptor);
-      }
+      axios$1.interceptors.response.use(function (response) {
+        // 对响应数据做点什么
+        console.log(response);
+        return response.data;
+      }, function (error) {
+        if (error.response.status == 400 || error.response.status == 500) {
+          if (error.response.data && error.response.data.msg) {
+            var msg = error.response.data.msg.split('，')[0];
+            console.log(msg);
+          }
+        } // 对响应错误做点什么
+
+
+        return Promise.reject(error);
+      });
+      console.log(Vue);
+      Object.defineProperty(Vue.prototype, '$axios', {
+        value: axios$1
+      });
     }
   };
 
@@ -4489,7 +4010,7 @@
    * @Author: nutter
    * @Date: 2020-03-11 15:46:06
    * @LastEditors: nutter
-   * @LastEditTime: 2020-08-24 10:18:44
+   * @LastEditTime: 2020-08-25 16:23:36
    * @FilePath: \nutter-ui\packages\index.js
    */
 

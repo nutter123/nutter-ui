@@ -1,3 +1,10 @@
+/*
+ * @Author: nutter
+ * @Date: 2020-08-19 14:03:01
+ * @LastEditors: nutter
+ * @LastEditTime: 2020-08-25 15:40:03
+ * @FilePath: \nutter-ui\test\src\api\src\cab\area.js
+ */
 import axios from "axios";
 import { bascBase } from "@/api/config";
 const _module = `${bascBase}/area`;

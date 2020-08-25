@@ -2,7 +2,7 @@
  * @Author: nutter
  * @Date: 2020-03-11 15:46:06
  * @LastEditors: nutter
- * @LastEditTime: 2020-08-24 10:18:44
+ * @LastEditTime: 2020-08-25 16:28:31
  * @FilePath: \nutter-ui\packages\index.js
  */
 import './assets'

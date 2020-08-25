@@ -2,7 +2,7 @@
  * @Author: nutter
  * @Date: 2020-03-11 20:30:00
  * @LastEditors: nutter
- * @LastEditTime: 2020-08-25 10:29:19
+ * @LastEditTime: 2020-08-25 16:29:13
  * @FilePath: \nutter-ui\test\src\main.js
  */
 import Vue from 'vue'
@@ -37,7 +37,7 @@ Vue.use(BaiduMap, {
 })
 Vue.use(Base64);
 Vue.use(VueClipboard)
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 Vue.use(ElementUI)
 Vue.use(nutterUi, {
   third: {
