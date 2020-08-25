@@ -2,19 +2,19 @@
  * @Author: nutter
  * @Date: 2020-03-11 20:30:00
  * @LastEditors: nutter
- * @LastEditTime: 2020-08-21 17:43:31
+ * @LastEditTime: 2020-08-25 10:29:19
  * @FilePath: \nutter-ui\test\src\main.js
  */
 import Vue from 'vue'
 import App from '@/common/App'
 import ElementUI from 'element-ui'
-import nutterUi from '../../dist/main.umd.js'
 import router from '@/router'
 import api from '@/api'
 import './axios';
 import 'element-ui/lib/theme-chalk/index.css'
 import '../../dist/style.css'
 import '../../dist/iconfonts/iconfont.css'
+import nutterUi from '../../dist/main.umd.js'
 import config from '@/config'
 
 import {

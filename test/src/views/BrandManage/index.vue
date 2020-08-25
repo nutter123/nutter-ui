@@ -1,18 +1,22 @@
 <template>
   <div>
-    <n-title>快递品牌管理</n-title>
+    <n-title>
+      <span>快递品牌管理</span>
+    </n-title>
     <div class="pd-20">
-      <el-card shadow="hover">
+      <el-card shadow="never">
         <search-form @search="onSearch" ref="searchForm"></search-form>
         <div class="text-right">
           <auth-button value type="primary" size="small" @click="toAddNew()">新增</auth-button>
         </div>
         <el-table
           :data="tableParams.list"
-          type="selection"
+          stripe
+          border
           tooltip-effect="light"
           ref="table"
-          class="mt-20 n-table-border"
+          class="mt-20 x-expand-table"
+          type="selection"
           header-cell-class-name="n-table-header"
         >
           <el-table-column label="序号" prop="sort" min-width="20"></el-table-column>
@@ -31,7 +35,7 @@
             </template>
           </el-table-column>
           <el-table-column label="备注" prop="remark" min-width="80"></el-table-column>
-          <el-table-column label="操作" align="right" fixed="right" min-width="100">
+          <el-table-column label="操作" fixed="right" min-width="100">
             <template slot-scope="scope">
               <!-- 列表操作菜单 -->
               <el-button

@@ -13,10 +13,12 @@
 }
 
 .n-title {
+    position: relative;
+
     .el-breadcrumb {
         padding: 0 20px;
-        height: 50px;
-        line-height: 50px;
+        height: 40px;
+        line-height: 40px;
         background: $bg-bar;
         font-size: 14px;
         border-bottom: 1px solid #eee;
@@ -25,6 +27,14 @@
     .el-breadcrumb__inner {
         color: $bg-bar-font !important;
         font-weight: bold;
+    }
+
+    .n-title-right {
+        position: absolute;
+        right: 20px;
+        height: 50px;
+        line-height: 50px;
+        top: 0;
     }
 }
 

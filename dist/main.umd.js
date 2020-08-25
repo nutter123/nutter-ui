@@ -96,6 +96,7 @@
       }
       return script;
   }
+  //# sourceMappingURL=normalize-component.mjs.map
 
   /* script */
   const __vue_script__ = script;
@@ -212,6 +213,16 @@
   //
   //
   //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
   var script$2 = {
     name: "n-title",
     props: {
@@ -236,7 +247,9 @@
           { attrs: { separator: "/" } },
           [_c("el-breadcrumb-item", [_vm._t("default")], 2)],
           1
-        )
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "n-title-right" }, [_vm._t("right")], 2)
       ],
       1
     )
@@ -4476,7 +4489,7 @@
    * @Author: nutter
    * @Date: 2020-03-11 15:46:06
    * @LastEditors: nutter
-   * @LastEditTime: 2020-08-20 17:17:17
+   * @LastEditTime: 2020-08-24 10:18:44
    * @FilePath: \nutter-ui\packages\index.js
    */
 

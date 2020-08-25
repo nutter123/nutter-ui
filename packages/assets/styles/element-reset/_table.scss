@@ -1,0 +1,37 @@
+.el-table th{
+	padding:10px 0;
+	background: #ebebeb;
+	text-align: center;
+	font-size: 13px;
+	
+	font-weight: normal
+}
+.el-table th>.cell{
+	color: #666;
+}
+.el-table td {
+    padding:10px 0;
+	text-align: center;
+	font-size: 13px;
+}
+.el-table .cell{
+	min-height: 23px;
+	line-height: 23px;
+}
+.el-table--border td, .el-table--border th{
+	border-right: 1px solid #ddd;
+}
+.el-table td{
+	border-bottom: 1px solid #ddd;
+}
+.el-table--border, .el-table--group{
+	border: 1px solid #ddd;
+	border-right: none;
+	border-bottom: none
+}
+.el-table--border::after, .el-table--group::after, .el-table::before,.el-table__fixed-right::before, .el-table__fixed::before{
+	background: #ddd
+}
+.el-table__empty-block{
+	min-height: 44px;
+}

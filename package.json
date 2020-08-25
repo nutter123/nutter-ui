@@ -2,7 +2,7 @@
     "name": "nutter-ui",
     "description": "nutter's element ui",
     "authors": "nutter",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "main": "dist/main.umd.js",
     "module": "dist/main.esm.js",
     "unpkg": "dist/main.min.js",
@@ -12,13 +12,14 @@
         "library"
     ],
     "dependencies": {
+        "vue-cookie": "^1.1.4"
+    },
+    "peerDependencies": {
         "axios": "^0.19.2",
         "crypto-js": "^4.0.0",
         "element-ui": "^2.13.0",
-        "vue": "^2.6.11",
-        "vue-cookie": "^1.1.4"
+        "vue": "^2.6.11"
     },
-    "peerDependencies": {},
     "scripts": {
         "build": "npm run build:umd && npm run build:css && npm run build:es && npm run build:browser",
         "build:browser": "cross-env NODE_ENV=production rollup --config build/rollup.config.browser.js",
