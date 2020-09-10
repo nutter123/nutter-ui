@@ -9,7 +9,7 @@ import {
   isApplicationForm,
   eachOwn,
   type
-} from '@/utils'
+} from '@packages/utils'
 
 // 支持post/put/patch 的表单提交方式
 export default {

@@ -1,6 +1,6 @@
 import {
   isAbsoluteUrl
-} from '@/utils'
+} from '@packages/utils'
 
 // mock 支持
 // config.mock = true 启用该拦截器

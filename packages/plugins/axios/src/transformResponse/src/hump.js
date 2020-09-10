@@ -7,7 +7,7 @@
  */
 import {
   dataToHump
-} from '@/utils'
+} from '@packages/utils'
 
 // 数据转驼峰
 export default function (data) {

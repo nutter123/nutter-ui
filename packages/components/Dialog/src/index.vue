@@ -1,3 +1,10 @@
+<!--
+ * @Author: nutter
+ * @Date: 2020-05-28 10:26:29
+ * @LastEditors: nutter
+ * @LastEditTime: 2020-08-25 18:08:08
+ * @FilePath: \nutter-ui\packages\components\Dialog\src\index.vue
+-->
 <template>
   <transition :name="transitionName">
     <div class="n-dialog-mask" :style="{zIndex: zIndex}" v-show="visible">
@@ -21,38 +28,38 @@ export default {
   name: "n-dialog",
   model: {
     prop: "visible",
-    event: "change"
+    event: "change",
+  },
+  data() {
+    return {
+      zIndex: 1,
+    };
   },
   props: {
     transitionName: {
       type: String,
-      default: "el-zoom-in-top"
+      default: "el-zoom-in-top",
     },
     title: {
       type: String,
-      default: "标题"
+      default: "标题",
     },
     visible: {
       type: Boolean,
-      default: false
+      default: false,
     },
     appendToBody: {
       type: Boolean,
-      default: true
+      default: true,
     },
     showHeader: {
       type: Boolean,
-      default: true
+      default: true,
     },
     keepAlive: {
       type: Boolean,
-      default: false
-    }
-  },
-  data() {
-    return {
-      zIndex: 1
-    };
+      default: false,
+    },
   },
   computed: {
     renderEveryTime() {
@@ -61,14 +68,14 @@ export default {
       } else {
         return this.visible;
       }
-    }
+    },
   },
   watch: {
     visible(val) {
       if (val) {
         this.openPanel();
       }
-    }
+    },
   },
   mounted() {
     if (this.appendToBody) {
@@ -91,7 +98,7 @@ export default {
     },
     closePanel() {
       this.$emit("change", false);
-    }
-  }
+    },
+  },
 };
 </script>

@@ -7,7 +7,7 @@
  */
 import {
   Loader
-} from '@/components/Loader'
+} from '@packages/components/Loader'
 
 let requestCount = 0
 let hideLoader = (time = 150) => {

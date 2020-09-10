@@ -1,7 +1,7 @@
 import {
   dataToUnderline,
   decomposeUrl
-} from '@/utils'
+} from '@packages/utils'
 
 export default {
   request: config => {

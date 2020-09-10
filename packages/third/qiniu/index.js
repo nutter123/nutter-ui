@@ -5,8 +5,8 @@
  * @LastEditTime: 2020-08-20 16:11:23
  * @FilePath: \nutter-ui\packages\third\qiniu\index.js
  */
-import httpRequest from '@/components/Upload/src/ajax'
-import options from '@/options'
+import httpRequest from '@packages/components/Upload/src/ajax'
+import options from '@packages/options'
 
 export default opts => {
     options.third.qiniu.httpRequest.getServerConfig().then(data => {

@@ -1,7 +1,7 @@
 import {
   removeEmpty,
   decomposeUrl
-} from '@/utils'
+} from '@packages/utils'
 
 export default {
   request: config => {

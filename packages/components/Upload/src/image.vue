@@ -37,8 +37,8 @@
 
 <script>
 import Upload from "./index";
-import { showPreview } from "@/components/MessageBox";
-import { callOrApply } from "@/utils";
+import { showPreview } from "@packages/components/MessageBox";
+import { callOrApply } from "@packages/utils";
 
 export default {
   name: "n-upload-image",

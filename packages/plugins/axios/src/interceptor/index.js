@@ -1,7 +1,7 @@
 import {
   eachOwn,
   requireContextToObj
-} from '@/utils'
+} from '@packages/utils'
 
 let interceptors = requireContextToObj(require.context('./src', false, /\.js$/))
 

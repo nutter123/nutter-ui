@@ -1,7 +1,7 @@
 import {
   authMac,
   decomposeUrl
-} from '@/utils'
+} from '@packages/utils'
 
 let authorization = ({
   url,

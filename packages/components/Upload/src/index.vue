@@ -36,10 +36,10 @@
 </template>
 
 <script type="text/babel">
-import { callOrApply, isIE } from "@/utils";
-import { success, warning } from "@/components/Notify";
+import { callOrApply, isIE } from "@packages/utils";
+import { success, warning } from "@packages/components/Notify";
 import elementHttpRequest from "./ajax";
-import qiniuHttpRequest from "@/third/qiniu/index";
+import qiniuHttpRequest from "@packages/third/qiniu/index";
 
 export default {
   name: 'n-upload',

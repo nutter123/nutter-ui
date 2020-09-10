@@ -2,11 +2,11 @@ import extend from 'extend'
 import VueCookie from 'vue-cookie'
 import {
   randRange
-} from '@/utils/src/randText'
+} from '@packages/utils/src/randText'
 import axios from 'axios'
 // import {
 //   warn
-// } from '@/log'
+// } from '@packages/log'
 
 const options = {
   debug: true,
@@ -122,7 +122,7 @@ const options = {
             method: 'GET',
             responseType: 'json'
           }).then(data => {
-            let datas = data.data;
+            let datas = data;
             return {
               domain: datas.domainUrl,
               zoneUrl: this.getZoneUrl(datas.qiniuZone.upUrls),

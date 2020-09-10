@@ -1,7 +1,7 @@
 import randText from './randText'
 import hmacSHA256 from 'crypto-js/hmac-sha256'
 import Base64 from 'crypto-js/enc-base64'
-import options from '@/options'
+import options from '@packages/options'
 
 class RequestContent {
   constructor(config = {
