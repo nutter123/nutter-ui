@@ -31,15 +31,15 @@
             <el-input size="small" v-model="addForm.companyName" placeholder="请输入快递品牌名称"></el-input>
           </el-form-item>
           <el-form-item label="logo：" prop="logoUrl">
-            <n-upload-image
+            <n-upload
               v-model="addForm.logoUrl"
-              :limit="1"
+              :show-file-list="false"
               class="logo-container"
               httpRequest="qiniu"
-              :singleFileSize="1"
             >
-              <div slot="tip" class="el-upload__tip">(最多上传一张图片)</div>
-            </n-upload-image>
+              <img v-if="addForm.logoUrl" :src="addForm.logoUrl" class="avatar" />
+              <i v-else class="el-icon-plus avatar-uploader-icon"></i>
+            </n-upload>
           </el-form-item>
           <el-form-item label="备注：" prop="remark">
             <el-input
