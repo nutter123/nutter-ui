@@ -1,2 +1,11 @@
 @import './_dialog.scss';
 @import './_table.scss';
+
+// 隐藏上传组件的上传按钮
+.upload-hide-add {
+
+    .el-upload--picture-card,
+    .el-upload {
+        display: none !important;
+    }
+}
