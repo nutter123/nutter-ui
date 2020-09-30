@@ -3,9 +3,12 @@
 
 // 隐藏上传组件的上传按钮
 .upload-hide-add {
-
     .el-upload--picture-card,
     .el-upload {
         display: none !important;
     }
+}
+//加载背景色调浅
+.el-loading-mask {
+    background: RGBA(0, 0, 0, .05)
 }

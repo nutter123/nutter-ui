@@ -2,7 +2,7 @@
     "name": "nutter-ui",
     "description": "nutter's element ui",
     "authors": "nutter",
-    "version": "1.1.7",
+    "version": "1.1.9",
     "main": "dist/nutterUi.js",
     "keywords": [
         "tools",
@@ -58,6 +58,7 @@
         "file-loader": "^1.1.4",
         "flexibility": "^2.0.1",
         "html-webpack-plugin": "^2.28.0",
+        "jest": "^26.4.2",
         "node-sass": "^4.7.2",
         "resolve-url-loader": "^2.2.1",
         "sass-loader": "^6.0.6",

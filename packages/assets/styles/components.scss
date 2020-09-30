@@ -113,10 +113,11 @@
     text-align: center;
 }
 
-img {
-    max-width: 100%;
-    max-height: 100%;
-}
+//会导致百度map图片乱码
+// img {
+//     max-width: 100%;
+//     max-height: 100%;
+// }
 
 //上传控件
 .n-upload .el-upload {
