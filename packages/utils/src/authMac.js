@@ -80,7 +80,6 @@ export {
 
 /**
  * hmac 认证
- * https://coding.net/u/chenzuopeng/p/wm-uc/git/blob/master/docs/authorization.md
  */
 export default (config = {
   macId: '',
