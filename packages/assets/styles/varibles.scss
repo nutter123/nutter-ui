@@ -1,5 +1,5 @@
 // 主题色
-$color-icon: #006eff;
+$color-icon: #409EFF;
 $color-red: #ff3333;
 $color-purple: #ff33a9;
 $color-orange: #ff8833;
@@ -11,26 +11,25 @@ $color-pl: #999999;
 $color-weak: #B3B3B3;
 $color-gray: #ebebeb;
 $color-white: #fff; // 背景色
-$bg-bar: #ebebeb;
-$bg-table: #ebebeb;
-$bg-bar-font: #606266;
-$bg-page: #f5f7fa;
+
+$bg-page: #f0f2f5;
 $bg-page-light: #F9F9F9;
+
+$bg-bar: #fff; // n-title背景色
+$bg-bar-font: #606266; // n-title字体色
+$bg-table: #fafafa;
 
 $font-color :#333;
 
-$primary-color : #ffa400;
-$info-color : linear-gradient(#ffd100, #ffa400);
+$primary-color : #409EFF;
+
 $success-color : #67c23a;
-$warning-color : #FEBF06;
-$error-color : #FF6c6c;
+$warning-color : #E6A23C;
+$error-color : #F56C6C;
 $link-color : #2D8cF0;
 $link-hover-color : lighten($link-color, 20%);
 $link-active-color : darken($link-color, 5%);
 $selected-color : shade($primary-color, 90%);
-$tooltip-color : #fff;
-$subsidiary-color : #80848f;
-$rate-star-color : #f5a623;
 
 /* 改变主题色变量 */
 $--color-primary: $primary-color;

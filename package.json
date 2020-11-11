@@ -2,7 +2,7 @@
     "name": "nutter-ui",
     "description": "nutter's element ui",
     "authors": "nutter",
-    "version": "1.1.10",
+    "version": "1.1.11",
     "main": "dist/nutterUi.js",
     "keywords": [
         "tools",

@@ -1,5 +1,19 @@
+<!--
+ * @Author: nutter
+ * @Date: 2020-08-19 14:03:21
+ * @LastEditors: nutter
+ * @LastEditTime: 2020-11-11 10:00:40
+ * @FilePath: \nutter-ui\test\src\components\authButton\index.vue
+-->
 <template>
-  <el-button v-if="showStatus" :type="type" :size="size" @click="handleClick" :disabled="disabled">
+  <el-button
+    v-if="showStatus"
+    :type="type"
+    :size="size"
+    :icon="icon"
+    @click="handleClick"
+    :disabled="disabled"
+  >
     <slot />
   </el-button>
 </template>
@@ -13,30 +27,36 @@ export default {
       type: String,
       default() {
         return "";
-      }
+      },
     },
     type: {
       type: String,
       default() {
         return "";
-      }
+      },
     },
     size: {
       type: String,
       default() {
         return "";
-      }
+      },
+    },
+    icon: {
+      type: String,
+      default() {
+        return "";
+      },
     },
     disabled: {
       type: Boolean,
       default() {
         return false;
-      }
-    }
+      },
+    },
   },
   data() {
     return {
-      showStatus: true
+      showStatus: true,
     };
   },
   created() {
@@ -60,8 +80,8 @@ export default {
     },
     handleClick() {
       this.$emit("click");
-    }
-  }
+    },
+  },
 };
 </script>
 

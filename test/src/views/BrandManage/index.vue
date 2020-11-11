@@ -4,38 +4,55 @@
       <span>快递品牌管理</span>
     </n-title>
     <div class="pd-20">
+      <search-form @search="onSearch" ref="searchForm"></search-form>
       <el-card shadow="never">
-        <search-form @search="onSearch" ref="searchForm"></search-form>
         <div class="text-right">
-          <auth-button value type="primary" size="small" @click="toAddNew()">新增</auth-button>
+          <auth-button value type="primary" icon="el-icon-plus" size="small" @click="toAddNew()"
+            >新增</auth-button
+          >
         </div>
         <el-table
           :data="tableParams.list"
-          stripe
-          border
           tooltip-effect="light"
           ref="table"
-          class="mt-20 x-expand-table"
+          class="mt-20"
           type="selection"
           header-cell-class-name="n-table-header"
         >
-          <el-table-column label="序号" prop="sort" min-width="20"></el-table-column>
+          <el-table-column
+            label="序号"
+            prop="sort"
+            min-width="20"
+          ></el-table-column>
           <el-table-column label="LOGO" prop="logoUrl" min-width="80">
             <template slot-scope="scope">
-              <el-image :src="scope.row.logoUrl" fit="fit" style="width:30px;height:30px"></el-image>
+              <el-image
+                :src="scope.row.logoUrl"
+                fit="fit"
+                style="width: 30px; height: 30px"
+              ></el-image>
             </template>
           </el-table-column>
-          <el-table-column label="快递品牌名称" prop="companyName" min-width="80"></el-table-column>
+          <el-table-column
+            label="快递品牌名称"
+            prop="companyName"
+            min-width="80"
+          ></el-table-column>
           <el-table-column label="状态" prop="status" min-width="80">
             <template slot-scope="scope">
               <el-tag
-                :type="(scope.row.status <= 0) ? 'danger' : 'success'"
+                :type="scope.row.status <= 0 ? 'danger' : 'success'"
                 disable-transitions
-              >{{scope.row.status | checkStatus}}</el-tag>
+                >{{ scope.row.status | checkStatus }}</el-tag
+              >
             </template>
           </el-table-column>
-          <el-table-column label="备注" prop="remark" min-width="80"></el-table-column>
-          <el-table-column label="操作" fixed="right" min-width="100">
+          <el-table-column
+            label="备注"
+            prop="remark"
+            min-width="80"
+          ></el-table-column>
+          <el-table-column label="操作" fixed="right">
             <template slot-scope="scope">
               <!-- 列表操作菜单 -->
               <el-button
@@ -43,13 +60,15 @@
                 size="medium"
                 v-if="authButton('')"
                 @click="toEdit(scope.row)"
-              >修改</el-button>
+                >修改</el-button
+              >
               <el-button
                 type="text"
                 size="medium"
                 v-if="authButton('')"
                 @click="toDel(scope.row)"
-              >删除</el-button>
+                >删除</el-button
+              >
             </template>
           </el-table-column>
         </el-table>

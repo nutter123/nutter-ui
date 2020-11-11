@@ -25,28 +25,40 @@
             ></el-switch>
           </el-form-item>
           <el-form-item label="序号：" prop="sort">
-            <el-input size="small" v-model="addForm.sort" placeholder="请输入序号"></el-input>
+            <el-input
+              size="small"
+              v-model="addForm.sort"
+              placeholder="请输入序号"
+            ></el-input>
           </el-form-item>
           <el-form-item label="名称：" prop="companyName">
-            <el-input size="small" v-model="addForm.companyName" placeholder="请输入快递品牌名称"></el-input>
+            <el-input
+              size="small"
+              v-model="addForm.companyName"
+              placeholder="请输入快递品牌名称"
+            ></el-input>
           </el-form-item>
           <el-form-item label="logo：" prop="logoUrl">
-            <n-upload
+            <n-upload-image
               v-model="addForm.logoUrl"
-              :show-file-list="false"
-              class="logo-container"
+              :singleFileSize="10"
+              :limit="1"
               httpRequest="qiniu"
             >
-              <img v-if="addForm.logoUrl" :src="addForm.logoUrl" class="avatar" />
+              <img
+                v-if="addForm.logoUrl"
+                :src="addForm.logoUrl"
+                class="avatar"
+              />
               <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-            </n-upload>
+            </n-upload-image>
           </el-form-item>
           <el-form-item label="备注：" prop="remark">
             <el-input
               size="small"
               type="textarea"
-              style="min-width:300px"
-              :autosize="{ minRows: 2, maxRows: 4}"
+              style="min-width: 300px"
+              :autosize="{ minRows: 2, maxRows: 4 }"
               v-model="addForm.remark"
               placeholder="请输入备注"
             ></el-input>
@@ -55,7 +67,9 @@
       </div>
       <div slot="footer" class="dialog-footer">
         <el-button size="small" @click="resetForm">重置</el-button>
-        <el-button size="small" type="primary" @click="submitForm">保存</el-button>
+        <el-button size="small" type="primary" @click="submitForm"
+          >保存</el-button
+        >
       </div>
     </el-dialog>
   </div>
