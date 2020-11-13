@@ -65,7 +65,7 @@
             padding: 5px 0;
             font-size: 20px;
             line-height: 30px;
-            border-bottom: 1px solid #ddd;
+            // border-bottom: 1px solid #ddd;
 
             .n-dialog-close {
                 position: absolute;
@@ -90,7 +90,8 @@
         .n-dialog-body {
             flex: 1;
             overflow: auto;
-            padding: 0 15px 15px;
+            background: $bg-page;
+            padding: 24px;
         }
 
         .n-dialog-footer {
@@ -155,6 +156,7 @@
     line-height: 18px;
     font-size: 16px;
     color: #555;
+    font-weight: bold;
 
     &::before {
         content: " ";

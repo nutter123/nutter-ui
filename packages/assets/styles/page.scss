@@ -14,3 +14,12 @@
     border: 1px solid $bg-table;
     border-radius: 3px;
 }
+
+.info-container {
+    display: flex;
+    align-content: space-around;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 20px;
+    text-align: left;
+}

@@ -1,5 +1,8 @@
 // utils 工具
 // 颜色
+.bg-white{
+    background-color: $color-white !important;
+}
 .bg-red {
     background-color: $color-red !important;
 }
@@ -173,6 +176,10 @@ div.dib {
 /* ==================
           布局
  ==================== */
+.w-100m {
+    width: 100% !important;
+}
+
 .no-scroll {
     overflow: hidden;
 }
