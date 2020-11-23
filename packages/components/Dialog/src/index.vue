@@ -2,7 +2,7 @@
  * @Author: nutter
  * @Date: 2020-05-28 10:26:29
  * @LastEditors: nutter
- * @LastEditTime: 2020-08-25 18:08:08
+ * @LastEditTime: 2020-11-23 10:21:17
  * @FilePath: \nutter-ui\packages\components\Dialog\src\index.vue
 -->
 <template>
@@ -32,7 +32,7 @@ export default {
   },
   data() {
     return {
-      zIndex: 1,
+      zIndex: 999,
     };
   },
   props: {
@@ -93,7 +93,7 @@ export default {
   methods: {
     openPanel() {
       if (this.visible === true) {
-        this.zIndex = PopupManager.nextZIndex();
+        // this.zIndex = PopupManager.nextZIndex();
       }
     },
     closePanel() {

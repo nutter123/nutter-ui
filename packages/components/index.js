@@ -2,7 +2,7 @@
  * @Author: nutter
  * @Date: 2020-03-23 10:52:48
  * @LastEditors: nutter
- * @LastEditTime: 2020-08-21 15:22:30
+ * @LastEditTime: 2020-11-19 14:06:32
  * @FilePath: \nutter-ui\packages\components\index.js
  */
 import Button from './Button'
@@ -10,12 +10,16 @@ import Icon from './Icon'
 import Title from './Title'
 import Dialog from './Dialog'
 import Upload from './Upload'
+import Divider from './Divider'
+import InfoText from './InfoText'
 
 export * from './Button'
 export * from './Icon'
 export * from './Title'
 export * from './Dialog'
 export * from './Upload'
+export * from './Divider'
+export * from './InfoText'
 
 export default {
     install(Vue, opts = {}) {
@@ -24,6 +28,8 @@ export default {
         Vue.use(Title, opts.title);
         Vue.use(Dialog, opts.dialog);
         Vue.use(Upload, opts.upload);
+        Vue.use(Divider, opts.divider);
+        Vue.use(InfoText, opts.infoText);
     }
 }
 // let components = []

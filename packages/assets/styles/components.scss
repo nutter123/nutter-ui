@@ -168,3 +168,42 @@
         margin-right: 10px;
     }
 }
+
+//n-divider
+.n-divider {
+    display: flex;
+    clear: both;
+    width: 100%;
+    min-width: 100%;
+    margin: 24px 0;
+    box-sizing: border-box;
+    padding: 0;
+    color: rgba(0, 0, 0, .85);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: "tnum", "tnum";
+    border-top: 1px solid rgba(0, 0, 0, .06);
+}
+
+//n-info-text
+.n-info-item {
+    font-size: 14px;
+    min-height: 40px;
+    line-height: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.n-info-label {
+    width: 100px;
+    color: #99a9bf;
+    display: inline-block;
+}
+
+.n-info-value {
+    display: inline-block;
+    flex: 1;
+}
