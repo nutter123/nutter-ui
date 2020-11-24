@@ -280,6 +280,7 @@ export default {
             ...params,
           })
         );
+        console.log(_result)
         if (_result.infoItems && _result.infoItems.length > 0) {
           this.$nextTick(function () {
             this.allData[this.tableParams.pageNum - 1] = _result.infoItems;

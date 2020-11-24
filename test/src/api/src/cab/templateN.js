@@ -1,4 +1,11 @@
-import axios from "axios"
+/*
+ * @Author: nutter
+ * @Date: 2020-11-19 13:59:18
+ * @LastEditors: nutter
+ * @LastEditTime: 2020-11-24 10:12:49
+ * @FilePath: \nutter-ui\test\src\api\src\cab\templateN.js
+ */
+import axios from "@/axios";
 import {
     ims
 } from "@/api/config"

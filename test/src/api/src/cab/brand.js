@@ -1,4 +1,6 @@
-import axios from "axios"
+import vue from "vue";
+const axios = vue.prototype.$axios;
+// import axios from "@/axios";
 const _module = `channel-ims/express/company`
 export default {
     /**

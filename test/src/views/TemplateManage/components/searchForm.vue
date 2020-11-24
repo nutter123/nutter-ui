@@ -2,8 +2,8 @@
  * @Author: nutter
  * @Date: 2020-08-26 14:37:05
  * @LastEditors: nutter
- * @LastEditTime: 2020-11-19 10:04:01
- * @FilePath: \cabinet-web\src\views\TemplateManage\components\searchForm.vue
+ * @LastEditTime: 2020-11-23 15:19:47
+ * @FilePath: \nutter-ui\test\src\views\TemplateManage\components\searchForm.vue
 -->
 <template>
   <el-card shadow="never" class="mb-20">
@@ -57,10 +57,19 @@
       </el-form-item>
       <div class="fr">
         <el-form-item>
-          <el-button size="small" @click="onReset()">重置</el-button>
+          <el-button
+            size="small"
+            icon="el-icon-refresh-right"
+            @click="onReset()"
+            >重置</el-button
+          >
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" size="small" @click="onSearch()"
+          <el-button
+            type="primary"
+            icon="el-icon-search"
+            size="small"
+            @click="onSearch()"
             >搜索</el-button
           >
         </el-form-item>

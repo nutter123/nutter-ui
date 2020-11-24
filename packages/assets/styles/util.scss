@@ -1,8 +1,9 @@
 // utils 工具
 // 颜色
-.bg-white{
+.bg-white {
     background-color: $color-white !important;
 }
+
 .bg-red {
     background-color: $color-red !important;
 }
@@ -21,6 +22,10 @@
 
 .bg-gray {
     background-color: $color-gray !important;
+}
+
+.fc-green {
+    color: $color-green !important;
 }
 
 .fc-red {

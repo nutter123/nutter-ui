@@ -2,23 +2,21 @@
  * @Author: nutter
  * @Date: 2020-03-11 20:30:00
  * @LastEditors: nutter
- * @LastEditTime: 2020-08-25 18:29:19
+ * @LastEditTime: 2020-11-24 10:18:33
  * @FilePath: \nutter-ui\test\src\main.js
  */
 import Vue from 'vue'
 import App from '@/common/App'
 import ElementUI from 'element-ui'
 import router from '@/router'
-import api from '@/api'
-import './axios';
 import 'element-ui/lib/theme-chalk/index.css'
 import '../../dist/nutterUi.css'
 import nutterUi from '../../dist/nutterUi.js'
 import config from '@/config'
-
 import {
   Base64
 } from 'js-base64'
+import api from '@/api'
 import BaiduMap from 'vue-baidu-map'
 import VueClipboard from 'vue-clipboard2';
 import authButton from '@/components/authButton'
@@ -57,7 +55,6 @@ router.beforeEach((to, from, next) => {
   }
   next()
 })
-
 Vue.prototype.$apis = api;
 Vue.prototype.$token = 'MzJkaVl6Z3pNVEZpTlRRd05tSmtaVGd4TW1JelkyRTFOVEUxT1RkbFlqa3hUUWJjODMxMWI1NDA2YmRlODEyYjNjYTU1MTU5N2ViOTFN.mhvrtm8ev7bpaoso7az65uioxxhtdpet.2cdb0713541670bba23f95a5a303e39f'
 // vue-AMap vue高德地图组件

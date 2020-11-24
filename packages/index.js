@@ -2,7 +2,7 @@
  * @Author: nutter
  * @Date: 2020-03-11 15:46:06
  * @LastEditors: nutter
- * @LastEditTime: 2020-08-25 16:28:31
+ * @LastEditTime: 2020-11-24 10:09:59
  * @FilePath: \nutter-ui\packages\index.js
  */
 import './assets'
@@ -19,7 +19,8 @@ import options, {
 export * from './components'
 export {
     utils,
-    options
+    options,
+    axios
 }
 const install = function (Vue, opts = {}) {
     if (install.installed) return;
@@ -27,10 +28,6 @@ const install = function (Vue, opts = {}) {
 
     if (opts.components !== false) {
         Vue.use(Components, opts.components)
-    }
-
-    if (opts.axios !== false) {
-        Vue.use(axios, opts.axios)
     }
 
     // if (opts.filters !== false) {
