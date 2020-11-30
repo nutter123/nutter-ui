@@ -7,7 +7,6 @@ import axios from 'axios'
 // import {
 //   warn
 // } from '@packages/log'
-
 const options = {
   debug: true,
   // 环境配置
@@ -93,7 +92,8 @@ const options = {
             method: 'GET',
             responseType: 'json'
           }).then(data => {
-            let datas = data;
+            console.log(data);
+            let datas = data.data;
             return {
               domain: datas.domainUrl,
               zoneUrl: this.getZoneUrl(datas.qiniuZone.upUrls),

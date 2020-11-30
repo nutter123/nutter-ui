@@ -2,12 +2,10 @@
  * @Author: nutter
  * @Date: 2020-08-19 14:03:01
  * @LastEditors: nutter
- * @LastEditTime: 2020-08-25 15:40:03
+ * @LastEditTime: 2020-11-24 10:49:31
  * @FilePath: \nutter-ui\test\src\api\src\cab\area.js
  */
-import vue from "vue";
-const axios = vue.prototype.$axios;
-// import axios from "@/axios";
+import axios from "@/axios";
 import {
   bascBase
 } from "@/api/config";

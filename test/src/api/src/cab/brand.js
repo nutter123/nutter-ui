@@ -1,6 +1,11 @@
-import vue from "vue";
-const axios = vue.prototype.$axios;
-// import axios from "@/axios";
+/*
+ * @Author: nutter
+ * @Date: 2020-08-19 14:03:01
+ * @LastEditors: nutter
+ * @LastEditTime: 2020-11-24 10:49:40
+ * @FilePath: \nutter-ui\test\src\api\src\cab\brand.js
+ */
+import axios from "@/axios";
 const _module = `channel-ims/express/company`
 export default {
     /**

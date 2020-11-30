@@ -2,37 +2,12 @@
  * @Author: nutter
  * @Date: 2020-11-19 14:28:37
  * @LastEditors: nutter
- * @LastEditTime: 2020-11-19 17:13:19
+ * @LastEditTime: 2020-11-25 09:56:27
  * @FilePath: \nutter-ui\test\src\views\TemplateManage\components\cabTemplate.vue
 -->
 <template>
   <div>
     <div class="template-container">
-      <div class="template-cabinet">
-        <div class="template-cabinet-title">{{ name }}</div>
-        <div class="template-cabinet-box">
-          <div
-            v-for="(col, colIdx) in cabBoxList"
-            :key="colIdx"
-            class="template-box-column"
-            :class="colIdx % 2 == 0 ? 'template-box-column_divider' : ''"
-          >
-            <div class="template-box-row_title">{{ colIdx }}列</div>
-            <div
-              class="template-box-grid"
-              :class="gridStyle[box['type']]"
-              v-for="(box, boxIdx) in col['box']"
-              :key="boxIdx"
-              @click="handleEditGrid(box, colIdx, boxIdx)"
-            >
-              <span v-if="box['type'] != '9'">{{
-                +colIdx + 1 + "-" + (+boxIdx + 1)
-              }}</span>
-              <el-image v-else :src="screenImg" class="flex-1" fit="fit"></el-image>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="template-info">
         <div class="template-info-container">
           <div class="n-label pl-20 mtb-10">格口{{ infoForm.name }}</div>
@@ -91,20 +66,129 @@
           </el-form>
         </div>
       </div>
+      <div class="template-cabinet">
+        <div class="template-cabinet-title">{{ name }}</div>
+        <div class="template-cabinet-box">
+          <div
+            v-for="(col, colIdx) in cabBoxList"
+            :key="colIdx"
+            class="template-box-column"
+            :class="colIdx % 2 == 0 ? 'template-box-column_divider' : ''"
+          >
+            <div class="template-box-row_title">{{ colIdx }}列</div>
+            <div
+              class="template-box-grid"
+              :class="gridStyle[box['type']]"
+              v-for="(box, boxIdx) in col['box']"
+              :key="boxIdx"
+              @click="handleEditGrid(box, colIdx, boxIdx)"
+            >
+              <span v-if="box['type'] != '9'">{{
+                +colIdx + 1 + "-" + (+boxIdx + 1)
+              }}</span>
+              <el-image
+                v-else
+                :src="screenImg"
+                class="flex-1"
+                fit="fit"
+              ></el-image>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="template-info">
+        <div class="template-info-container">
+          <div class="n-label pl-20 mtb-10">柜机结构图</div>
+          <el-tree
+            :data="data"
+            node-key="id"
+            class="template-tree"
+            default-expand-all
+            :expand-on-click-node="false"
+          >
+            <span class="custom-tree-node" slot-scope="{ node, data }">
+              <span>{{ node.label }}</span>
+              <span>
+                <el-button type="text" size="mini" @click="() => append(data)">
+                  添加
+                </el-button>
+                <el-button
+                  type="text"
+                  size="mini"
+                  @click="() => remove(node, data)"
+                >
+                  删除
+                </el-button>
+              </span>
+            </span>
+          </el-tree>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script>
-import screenImg from '@/assets/screen.png';
+import screenImg from "@/assets/screen.png";
 export default {
   name: "cab-template",
   data() {
+    const data = [
+      {
+        id: 1,
+        label: "一级 1",
+        children: [
+          {
+            id: 4,
+            label: "二级 1-1",
+            children: [
+              {
+                id: 9,
+                label: "三级 1-1-1",
+              },
+              {
+                id: 10,
+                label: "三级 1-1-2",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 2,
+        label: "一级 2",
+        children: [
+          {
+            id: 5,
+            label: "二级 2-1",
+          },
+          {
+            id: 6,
+            label: "二级 2-2",
+          },
+        ],
+      },
+      {
+        id: 3,
+        label: "一级 3",
+        children: [
+          {
+            id: 7,
+            label: "二级 3-1",
+          },
+          {
+            id: 8,
+            label: "二级 3-2",
+          },
+        ],
+      },
+    ];
     return {
       screenImg,
       infoForm: {
         type: "0",
       },
       disabled: false,
+      data: JSON.parse(JSON.stringify(data)),
       gridStyle: {
         3: "grid-mini",
         0: "grid-small",
@@ -302,5 +386,8 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+.template-tree{
+  background: #f0f2f5;
 }
 </style>

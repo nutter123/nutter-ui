@@ -2,7 +2,7 @@
  * @Author: nutter
  * @Date: 2020-08-17 15:09:42
  * @LastEditors: nutter
- * @LastEditTime: 2020-11-24 10:26:06
+ * @LastEditTime: 2020-11-24 10:48:17
  * @FilePath: \nutter-ui\test\src\axios\index.js
  */
 import {
@@ -10,6 +10,9 @@ import {
 } from '../../../dist/nutterUi.js'
 import VueCookie from 'vue-cookie'
 import config from '@/config'
+import {
+    Message
+} from 'element-ui'
 
 const defaults = {
     baseURL: config.host,
